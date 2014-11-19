@@ -8,6 +8,9 @@ import javax.ws.rs.core.MediaType;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
+import data.PCsData;
+import data.WebScraper;
+
 @Path("/meta")
 @Api(value = "/meta", description = "General info about the system, user")
 public class Meta {
@@ -24,6 +27,19 @@ public class Meta {
     @ApiOperation(value = "/info", notes = "Returns info about Sheffield PCs.")
     @Produces(MediaType.APPLICATION_JSON)
     public String info() {
-	return "{version: \"0.0.1\"}";
+	return "{version: \"0.0.2\"}";
+    }
+
+    @GET
+    @Path("/jsontest")
+    @ApiOperation(value = "/jsontest", notes = "JSON test.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String jsontest() {
+	WebScraper scraper = new WebScraper();
+	String json = scraper
+		.getJson("https://www.kimonolabs.com/api/azqh7yb0?apikey=65444f9af606f40552af9d9c90886781");
+	PCsData data = scraper.getData(json);
+
+	return scraper.getGson().toJson(data);
     }
 }
