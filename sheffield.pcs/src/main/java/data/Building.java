@@ -17,35 +17,29 @@ public class Building {
     public double latitude;
     public double longitude;
 
-    public static long insertNew(String name, Integer maximum, String photo,
-	    double latitude, double longitude) {
-	Connection connection = DatabasePostgres.getConnection();
+    public static long insertNew(Connection connection, String name,
+	    Integer maximum, String photo, double latitude, double longitude)
+	    throws SQLException {
 	PreparedStatement pStatement;
 	long result = -1l;
 
-	try {
-	    pStatement = connection
-		    .prepareStatement("INSERT INTO building (name, maximum, photo, latitude, longitude) "
-			    + "VALUES (?, ?, ?, ?, ?) RETURNING id");
-	    pStatement.setString(1, name);
-	    pStatement.setInt(2, maximum);
-	    pStatement.setString(3, photo);
-	    pStatement.setDouble(4, latitude);
-	    pStatement.setDouble(5, longitude);
+	pStatement = connection
+		.prepareStatement("INSERT INTO building (name, maximum, photo, latitude, longitude) "
+			+ "VALUES (?, ?, ?, ?, ?) RETURNING id");
+	pStatement.setString(1, name);
+	pStatement.setInt(2, maximum);
+	pStatement.setString(3, photo);
+	pStatement.setDouble(4, latitude);
+	pStatement.setDouble(5, longitude);
 
-	    ResultSet newId = pStatement.executeQuery();
+	ResultSet newId = pStatement.executeQuery();
 
-	    if (newId.next()) {
-		result = newId.getLong("id");
-	    }
-
-	    newId.close();
-	    pStatement.close();
-	    connection.close();
-	} catch (SQLException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+	if (newId.next()) {
+	    result = newId.getLong("id");
 	}
+
+	newId.close();
+	pStatement.close();
 
 	return result;
     }
@@ -74,7 +68,7 @@ public class Building {
 	    e.printStackTrace();
 	}
 
-	return null;
+	return result;
     }
 
     public static List<Long> getAllIds() {

@@ -96,24 +96,21 @@ public class DataEntry {
 	}
     }
 
-    private void insertPCsRow(Connection connection, long buildingId,
-	    int currentPCs, java.sql.Date date) {
-	try {
-	    PreparedStatement pStatement = connection
-		    .prepareStatement("INSERT INTO current_pcs (buildingId, current, date) "
-			    + "VALUES (?, ?, ?)");
-	    pStatement.setLong(1, buildingId);
-	    pStatement.setInt(2, currentPCs);
-	    pStatement.setDate(3, date);
+    private boolean insertPCsRow(Connection connection, long buildingId,
+	    int currentPCs, java.sql.Date date) throws SQLException {
+	PreparedStatement pStatement = connection
+		.prepareStatement("INSERT INTO current_pcs (buildingid, current, date) "
+			+ "VALUES (?, ?, ?)");
+	pStatement.setLong(1, buildingId);
+	pStatement.setInt(2, currentPCs);
+	pStatement.setDate(3, date);
 
-	    pStatement.executeQuery();
+	boolean result = pStatement.execute();
 
-	    pStatement.close();
-	    connection.close();
-	} catch (SQLException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	}
+	pStatement.close();
+	connection.close();
+
+	return result;
     }
 
     /**
@@ -125,7 +122,7 @@ public class DataEntry {
      * @param totalData
      *            As scraped by WebScraper.
      */
-    public void enter(OverallData totalData) {
+    public boolean enter(OverallData totalData) {
 	// Set up database details
 	Connection connection = DatabasePostgres.getConnection();
 	try {
@@ -151,21 +148,22 @@ public class DataEntry {
 		    double longitude = getLongitude(info.getLocation());
 		    Integer maxPCs = getMax(info.getTotal_text());
 
-		    buildingId = Building.insertNew(info.getBuilding(), maxPCs,
-			    info.getPhoto(), latitude, longitude);
+		    buildingId = Building.insertNew(connection,
+			    info.getBuilding(), maxPCs, info.getPhoto(),
+			    latitude, longitude);
 		}
 
 		assert (buildingId != null) : "No buildingId returned from the database.";
 
 		// Insert this row into the database
-		insertPCsRow(connection, buildingId, currentPCs, sqlDate);
+		assert insertPCsRow(connection, buildingId, currentPCs, sqlDate) : "New PCs row failed to insert.";
 		currentIds.remove(buildingId);
 	    }
 
 	    // Now insert dummy rows into any buildings that weren't included in
 	    // this scrape
 	    for (Long buildingId : currentIds) {
-		insertPCsRow(connection, buildingId, 0, sqlDate);
+		assert insertPCsRow(connection, buildingId, 0, sqlDate) : "Dummy PCs row failed to insert.";
 	    }
 
 	    connection.commit();
@@ -179,6 +177,10 @@ public class DataEntry {
 		e1.printStackTrace();
 	    }
 	    e.printStackTrace();
+
+	    return false;
 	}
+
+	return true;
     }
 }
