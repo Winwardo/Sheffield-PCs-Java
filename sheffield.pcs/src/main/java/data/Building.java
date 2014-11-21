@@ -15,7 +15,7 @@ public class Building {
     public double latitude;
     public double longitude;
 
-    public static long insertNew(String name, int maximum, String photo,
+    public static long insertNew(String name, Integer maximum, String photo,
 	    double latitude, double longitude) {
 	Connection connection = DatabasePostgres.getConnection();
 	PreparedStatement pStatement;
