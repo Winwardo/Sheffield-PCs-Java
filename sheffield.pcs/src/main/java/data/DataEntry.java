@@ -21,7 +21,7 @@ public class DataEntry {
      * @param url
      * @return
      */
-    public static double getLatitude(String url) {
+    public double getLatitude(String url) {
 	String matchedTotal = null;
 	Pattern pattern = Pattern.compile(".*lat=(.*?)&");
 	Matcher matcher = pattern.matcher(url);
@@ -44,7 +44,7 @@ public class DataEntry {
      * @param url
      * @return
      */
-    public static double getLongitude(String url) {
+    public double getLongitude(String url) {
 	String matchedTotal = null;
 	Pattern pattern = Pattern.compile(".*lon=(.*?)&");
 	Matcher matcher = pattern.matcher(url);
@@ -66,7 +66,7 @@ public class DataEntry {
      * @param total_text
      * @return
      */
-    public static Integer getMax(String total_text) {
+    public Integer getMax(String total_text) {
 	String matchedTotal = null;
 	Pattern pattern = Pattern.compile(".* out of (.*) PCs available");
 	Matcher matcher = pattern.matcher(total_text);
@@ -88,7 +88,7 @@ public class DataEntry {
      * @param total_text
      * @return
      */
-    public static int getCurrent(String current) {
+    public int getCurrent(String current) {
 	try {
 	    return Integer.parseInt(current);
 	} catch (Exception e) {
@@ -96,7 +96,7 @@ public class DataEntry {
 	}
     }
 
-    private static void insertPCsRow(Connection connection, long buildingId,
+    private void insertPCsRow(Connection connection, long buildingId,
 	    int currentPCs, java.sql.Date date) {
 	try {
 	    PreparedStatement pStatement = connection
@@ -125,7 +125,7 @@ public class DataEntry {
      * @param totalData
      *            As scraped by WebScraper.
      */
-    public static void enter(OverallData totalData) {
+    public void enter(OverallData totalData) {
 	// Set up database details
 	Connection connection = DatabasePostgres.getConnection();
 	try {
