@@ -3,6 +3,7 @@ package data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -99,16 +100,15 @@ public class DataEntry {
     private boolean insertPCsRow(Connection connection, long buildingId,
 	    int currentPCs, java.sql.Date date) throws SQLException {
 	PreparedStatement pStatement = connection
-		.prepareStatement("INSERT INTO current_pcs (buildingid, current, date) "
+		.prepareStatement("INSERT INTO current_pcs (buildingid, current, timestamp) "
 			+ "VALUES (?, ?, ?)");
 	pStatement.setLong(1, buildingId);
 	pStatement.setInt(2, currentPCs);
-	pStatement.setDate(3, date);
+	pStatement.setTimestamp(3, new Timestamp(date.getTime()));
 
 	boolean result = pStatement.execute();
 
 	pStatement.close();
-	connection.close();
 
 	return result;
     }
@@ -156,7 +156,9 @@ public class DataEntry {
 		assert (buildingId != null) : "No buildingId returned from the database.";
 
 		// Insert this row into the database
-		assert insertPCsRow(connection, buildingId, currentPCs, sqlDate) : "New PCs row failed to insert.";
+		boolean inserted = insertPCsRow(connection, buildingId,
+			currentPCs, sqlDate);
+		assert (inserted == true) : "New PCs row failed to insert.";
 		currentIds.remove(buildingId);
 	    }
 

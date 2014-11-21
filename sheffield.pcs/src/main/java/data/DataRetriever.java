@@ -16,12 +16,12 @@ public class DataRetriever {
 
 	try {
 	    pStatement = connection
-		    .prepareStatement("SELECT MIN(date) AS date, count(*) AS count FROM current_pcs GROUP BY date ORDER BY date DESC LIMIT 1;");
+		    .prepareStatement("SELECT MIN(timestamp) AS date, count(*) AS count FROM current_pcs WHERE timestamp IS NOT NULL GROUP BY timestamp ORDER BY timestamp DESC LIMIT 1;");
 
 	    ResultSet results = pStatement.executeQuery();
 
 	    if (results.next()) {
-		result.scrapeDate = results.getDate("date");
+		result.scrapeDate = results.getTimestamp("date");
 		result.scrapedComputers = results.getInt("count");
 	    }
 
