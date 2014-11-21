@@ -9,6 +9,8 @@ import java.net.URLConnection;
 
 import com.google.gson.Gson;
 
+import data.jsonIn.OverallData;
+
 public class WebScraper {
     Gson gson;
 
@@ -50,10 +52,10 @@ public class WebScraper {
 	return gson;
     }
 
-    public PCsData getData(String json) {
+    public OverallData getData(String json) {
 	if (json == null || "".equals(json)) {
 	    return null;
 	}
-	return getGson().fromJson(json, PCsData.class);
+	return getGson().fromJson(json, OverallData.class);
     }
 }
