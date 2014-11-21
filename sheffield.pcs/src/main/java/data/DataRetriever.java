@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import databaseAccess.DatabasePostgres;
 
@@ -23,6 +24,20 @@ public class DataRetriever {
 	    if (results.next()) {
 		result.scrapeDate = results.getTimestamp("date");
 		result.scrapedComputers = results.getInt("count");
+	    }
+
+	    pStatement.close();
+	    pStatement = connection
+		    .prepareStatement("SELECT buildingid, current FROM current_pcs WHERE timestamp = ?");
+	    pStatement.setTimestamp(1,
+		    new Timestamp(result.scrapeDate.getTime()));
+
+	    results = pStatement.executeQuery();
+
+	    while (results.next()) {
+		PCs_info info = new PCs_info(results.getLong("buildingid"),
+			results.getInt("current"));
+		result.pcsInfo.add(info);
 	    }
 
 	    results.close();
