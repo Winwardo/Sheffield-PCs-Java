@@ -1,4 +1,4 @@
-package data;
+package data.jsonIn;
 
 import java.util.List;
 

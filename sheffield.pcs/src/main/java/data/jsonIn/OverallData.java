@@ -1,6 +1,6 @@
-package data;
+package data.jsonIn;
 
-public class PCsData {
+public class OverallData {
     String name;
     int count;
 

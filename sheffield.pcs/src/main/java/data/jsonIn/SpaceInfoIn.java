@@ -1,17 +1,17 @@
-package data;
+package data.jsonIn;
 
 public class SpaceInfoIn {
-    int current;
+    String current;
     String total_text;
     String location;
     String building;
     String photo;
 
-    public int getCurrent() {
+    public String getCurrent() {
 	return current;
     }
 
-    public void setCurrent(int current) {
+    public void setCurrent(String current) {
 	this.current = current;
     }
 
