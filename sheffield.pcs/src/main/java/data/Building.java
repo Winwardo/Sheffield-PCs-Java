@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 import databaseAccess.DatabasePostgres;
 
@@ -73,5 +75,31 @@ public class Building {
 	}
 
 	return null;
+    }
+
+    public static List<Long> getAllIds() {
+	List<Long> result = new LinkedList<Long>();
+
+	Connection connection = DatabasePostgres.getConnection();
+	PreparedStatement pStatement;
+
+	try {
+	    pStatement = connection.prepareStatement("SELECT id FROM building");
+
+	    ResultSet results = pStatement.executeQuery();
+
+	    while (results.next()) {
+		result.add(results.getLong("id"));
+	    }
+
+	    results.close();
+	    pStatement.close();
+	    connection.close();
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
+	return result;
     }
 }
