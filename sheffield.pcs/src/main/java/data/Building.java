@@ -196,7 +196,8 @@ public class Building {
 	PreparedStatement pStatement;
 
 	try {
-	    pStatement = connection.prepareStatement("SELECT id FROM building");
+	    pStatement = connection
+		    .prepareStatement("SELECT id FROM building ORDER BY name");
 
 	    ResultSet results = pStatement.executeQuery();
 
