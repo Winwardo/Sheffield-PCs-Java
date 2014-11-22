@@ -76,4 +76,52 @@ public class ApiScraper {
 	    return gson.toJson("Wrong password.");
 	}
     }
+
+    @GET
+    @Path("/ic/buildings")
+    @ApiOperation(value = "/ic/buildings", notes = "Returns recent information about the IC.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String buildingsIC() {
+	return gson.toJson(Building.buildingsInTheIC());
+    }
+
+    @GET
+    @Path("/ic/current")
+    @ApiOperation(value = "/ic/current", notes = "Returns how many spaces are currently available in the IC.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String spacesIC() {
+	return gson.toJson(Building.spacesInTheIC());
+    }
+
+    @GET
+    @Path("/mappin/buildings")
+    @ApiOperation(value = "/mappin/buildings", notes = "Returns recent information about Mappin.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String buildingsMappin() {
+	return gson.toJson(Building.buildingsInMappin());
+    }
+
+    @GET
+    @Path("/mappin/current")
+    @ApiOperation(value = "/mappin/current", notes = "Returns how many spaces are currently available in Mappin.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String spacesMappin() {
+	return gson.toJson(Building.spacesInMappin());
+    }
+
+    @GET
+    @Path("/western/buildings")
+    @ApiOperation(value = "/western/buildings", notes = "Returns recent information about Western Bank.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String buildingsWestern() {
+	return gson.toJson(Building.buildingsInWesternBank());
+    }
+
+    @GET
+    @Path("/western/current")
+    @ApiOperation(value = "/western/current", notes = "Returns how many spaces are currently available in Western Bank.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String spacesWestern() {
+	return gson.toJson(Building.spacesInWesternBank());
+    }
 }

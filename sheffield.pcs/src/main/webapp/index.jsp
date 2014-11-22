@@ -4,6 +4,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
+
 <link rel="icon" href="img/crest_white.gif" />
 <link href="http://bootswatch.com/paper/bootstrap.min.css"
 	rel="stylesheet">
@@ -42,10 +43,20 @@
 
 	<div class="container" id="ICdata">
 		<div class="well">
-			<h2 style="margin-top: 2px;">
-				Current number of available PCs in the IC <br> <small>Higher
-					values mean more spaces!</small>
-			</h2>
+			
+			<div class="row">
+				<div class="col-sm-4">
+					<c:import url="MappinInfo.jsp"></c:import>
+				</div>
+				<div class="col-sm-4">
+					<c:import url="ICinfo.jsp"></c:import>
+				</div>
+				<div class="col-sm-4">
+					<c:import url="WesternBankInfo.jsp"></c:import>
+				</div>
+			</div>
+			
+			<hr>
 
 			<div id="pcs_graph">
 				<br> <br> <img src="img/loading.gif" alt="Loading"
@@ -93,22 +104,22 @@
 	}
 
 	function ICBuildings() {
-		 var selectedBuildings = [ 14, 15, 16, 18, 19, 20, 21 ];
-		selectedBuildings = [ 95, 96, 97, 100, 102 ];
+		var selectedBuildings = [ 14, 15, 16, 17, 18, 19, 20, 21 ];
+		selectedBuildings = [ 95, 96, 97, 98, 99, 100, 101, 102 ];
 
 		localStorage.setItem("selectedBuildings", selectedBuildings);
 	}
 
 	function MappinBuildings() {
 		var selectedBuildings = [ 29, 30, 31 ];
-		selectedBuildings = [ 111, 112, 113 ];
+		//selectedBuildings = [ 111, 112, 113 ];
 
 		localStorage.setItem("selectedBuildings", selectedBuildings);
 	}
 
 	function WesternBankBuildings() {
 		var selectedBuildings = [ 25, 26, 27, 28, 39 ];
-		selectedBuildings = [ 106, 108, 107, 108, 109 ];
+		//selectedBuildings = [ 106, 108, 107, 108, 109 ];
 
 		localStorage.setItem("selectedBuildings", selectedBuildings);
 	}
@@ -150,7 +161,12 @@
 			}
 		});
 	}
+	
+	function updateICCounter() {
+		$("#currentPcs").load("api/scraper/ic/current");
+	}
 
+	// jQuery calls
 	$(function() {
 		var selectedBuildings = getCurrentBuildings();
 		if (selectedBuildings == null || selectedBuildings[0] == null) {

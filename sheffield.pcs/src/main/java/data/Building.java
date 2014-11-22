@@ -26,6 +26,94 @@ public class Building {
 	pcsInfo = new LinkedList<PCs_info>();
     }
 
+    public static List<Building> buildingsInTheIC() {
+	List<Building> result = new LinkedList<Building>();
+
+	List<Long> ids = new LinkedList<Long>();
+	ids.add(Building.findIdFromName("Information Commons L1"));
+	ids.add(Building.findIdFromName("Information Commons L2"));
+	ids.add(Building.findIdFromName("Information Commons L3"));
+	ids.add(Building.findIdFromName("Information Commons L3 Classroom"));
+	ids.add(Building.findIdFromName("Information Commons L3 Silent Study"));
+	ids.add(Building.findIdFromName("Information Commons L4"));
+	ids.add(Building.findIdFromName("Information Commons L4 Classroom"));
+	ids.add(Building.findIdFromName("Information Commons L5"));
+
+	for (Long id : ids) {
+	    result.add(Building.get(id));
+	}
+
+	return result;
+    }
+
+    public static int spacesInTheIC() {
+	int result = 0;
+	List<Building> buildings = buildingsInTheIC();
+
+	for (Building building : buildings) {
+	    result += building.current;
+	}
+
+	return result;
+    }
+
+    public static List<Building> buildingsInMappin() {
+	List<Building> result = new LinkedList<Building>();
+
+	List<Long> ids = new LinkedList<Long>();
+	ids.add(Building.findIdFromName("Mappin Building - F110"));
+	ids.add(Building.findIdFromName("Mappin Building IT Centre - ME03"));
+	ids.add(Building.findIdFromName("Mappin Building IT Centre - ME04"));
+
+	for (Long id : ids) {
+	    result.add(Building.get(id));
+	}
+
+	return result;
+    }
+
+    public static int spacesInMappin() {
+	int result = 0;
+	List<Building> buildings = buildingsInMappin();
+
+	for (Building building : buildings) {
+	    result += building.current;
+	}
+
+	return result;
+    }
+
+    public static List<Building> buildingsInWesternBank() {
+	List<Building> result = new LinkedList<Building>();
+
+	List<Long> ids = new LinkedList<Long>();
+	ids.add(Building.findIdFromName("Library - Western Bank L3 Oasis"));
+	ids.add(Building.findIdFromName("Library - Western Bank L4 Oasis"));
+	ids.add(Building
+		.findIdFromName("Library - Western Bank L4 Wolfson Suite"));
+	ids.add(Building
+		.findIdFromName("Library - Western Bank L5 Architecture"));
+	ids.add(Building
+		.findIdFromName("Library - Western Bank L6 Architecture"));
+
+	for (Long id : ids) {
+	    result.add(Building.get(id));
+	}
+
+	return result;
+    }
+
+    public static int spacesInWesternBank() {
+	int result = 0;
+	List<Building> buildings = buildingsInWesternBank();
+
+	for (Building building : buildings) {
+	    result += building.current;
+	}
+
+	return result;
+    }
+
     public static Map<String, Object> getRecentForNvd3(long buildingId) {
 	Map<String, Object> result = new HashMap<String, Object>();
 	Building building = getRecent(buildingId);
