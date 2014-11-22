@@ -16,6 +16,43 @@ public class Building {
     public String photo;
     public double latitude;
     public double longitude;
+    public List<PCs_info> pcsInfo;
+
+    public Building() {
+	pcsInfo = new LinkedList<PCs_info>();
+    }
+
+    public static Building getRecent(long buildingId) {
+	Building building = new Building();
+
+	Connection connection = DatabasePostgres.getConnection();
+	PreparedStatement pStatement;
+	Long result = null;
+
+	try {
+	    pStatement = connection
+		    .prepareStatement("SELECT buildingid, current, timestamp FROM current_pcs WHERE buildingid = ? AND timestamp IS NOT NULL ORDER BY timestamp DESC LIMIT 192");
+	    pStatement.setLong(1, buildingId);
+
+	    ResultSet results = pStatement.executeQuery();
+
+	    while (results.next()) {
+		PCs_info info = new PCs_info(results.getLong("buildingid"),
+			results.getInt("current"),
+			results.getTimestamp("timestamp"));
+		building.pcsInfo.add(info);
+	    }
+
+	    results.close();
+	    pStatement.close();
+	    connection.close();
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
+	return building;
+    }
 
     public static long insertNew(Connection connection, String name,
 	    Integer maximum, String photo, double latitude, double longitude)
