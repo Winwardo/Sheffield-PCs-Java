@@ -11,41 +11,21 @@
 <script>
 	$(function() {
 		nv.addGraph(function() {
-			var chart;
-			chart = nv.models.stackedAreaChart();
-
-			var data = [ {
-				"values" : [ {
-					"buildingId" : 86,
-					"current" : 39,
-					"timeStamp" : 1416611524503
-				}, {
-					"buildingId" : 86,
-					"current" : 39,
-					"timeStamp" : 1416610491750
-				}, {
-					"buildingId" : 86,
-					"current" : 39,
-					"timeStamp" : 1416610395896
-				} ],
-				"key" : "Building A"
-			}, {
-				"values" : [ {
-					"buildingId" : 85,
-					"current" : 12,
-					"timeStamp" : 1416611524503
-				}, {
-					"buildingId" : 85,
-					"current" : 12,
-					"timeStamp" : 1416610491750
-				}, {
-					"buildingId" : 85,
-					"current" : 12,
-					"timeStamp" : 1416610395896
-				} ],
-				"key" : "The IC!"
-			} ];
-
+			var chart = nv.models.stackedAreaChart();
+			
+			var defaultList = [95, 96, 97, 100, 102];
+			var data = [];
+			
+			for (var i = 0; i < defaultList.length; ++i) {
+				var thing = $.ajax({
+			        type: "GET",
+			        url: "api/scraper/get/nvd3/" + defaultList[i],
+			        cache: false,
+			        async: false
+			    }).responseText;
+				data.push(JSON.parse(thing));
+			}
+			
 			chart.x(function(d) {
 				return d.timeStamp;
 			}).y(function(d) {
