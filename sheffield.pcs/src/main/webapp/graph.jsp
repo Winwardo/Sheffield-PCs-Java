@@ -1,9 +1,3 @@
-<script src="js/d3.v3.min.js" charset="utf-8"></script>
-<script src="js/nv.d3.min.js" charset="utf-8"></script>
-<script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
-
-<link rel="stylesheet" type="text/css" href="css/nv.d3.css">
-
 <div id="chart">
 	<svg></svg>
 </div>
