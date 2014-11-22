@@ -8,13 +8,13 @@ javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, java.tex
 	    List<Long> buildingIds = Building.getAllIds();
 			for (Long buildingId : buildingIds) {
 	    	Building building = Building.get(buildingId);
-	    	String labelType = "success";
+	    	String labelType = "label label-success";
 	    	if (building.current < 5) {
-	    	    labelType = "danger";
+	    	    labelType = "label label-danger";
 	    	} else if (building.current < 10) {
-	    	    labelType = "warning";
+	    	    labelType = "label label-warning";
 	    	} else if (building.current < 20) {
-	    	    labelType = "info";
+	    	    labelType = "";
 	    	}
 	%>
 	<li data-buildingid="<%=building.id%>" class="success"><img
@@ -22,7 +22,7 @@ javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, java.tex
 		class="img-circle pull-left"
 		style="width: 64px; height: 64px; margin-right: 8px;"> <strong><%=building.name%></strong>&nbsp;
 
-		<span class="label label-<%=labelType%> pull-right"><%=building.current%> free</span><br>
+		<span class="<%=labelType%> pull-right"><%=building.current%> free</span><br>
 
 		<span class="hidden-xs"> <%=building.current%> of <%=building.maximum%>
 			PCs are free.
