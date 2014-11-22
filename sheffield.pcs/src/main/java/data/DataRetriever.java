@@ -35,8 +35,9 @@ public class DataRetriever {
 	    results = pStatement.executeQuery();
 
 	    while (results.next()) {
-		PCs_info info = new PCs_info(results.getLong("buildingid"),
-			results.getInt("current"));
+		PCs_info info = new PCs_info();
+		info.buildingId = results.getLong("buildingid");
+		info.current = results.getInt("current");
 		result.pcsInfo.add(info);
 	    }
 

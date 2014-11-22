@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import databaseAccess.DatabasePostgres;
 
@@ -22,12 +24,24 @@ public class Building {
 	pcsInfo = new LinkedList<PCs_info>();
     }
 
+    public static Map<String, Object> getRecentForNvd3(long buildingId) {
+	Map<String, Object> result = new HashMap<String, Object>();
+	Building building = getRecent(buildingId);
+
+	result.put("key", building.name);
+	result.put("values", building.pcsInfo);
+
+	return result;
+    }
+
     public static Building getRecent(long buildingId) {
 	Building building = new Building();
 
+	building.id = buildingId;
+	building.name = Building.getNameFromId(buildingId);
+
 	Connection connection = DatabasePostgres.getConnection();
 	PreparedStatement pStatement;
-	Long result = null;
 
 	try {
 	    pStatement = connection
@@ -37,9 +51,10 @@ public class Building {
 	    ResultSet results = pStatement.executeQuery();
 
 	    while (results.next()) {
-		PCs_info info = new PCs_info(results.getLong("buildingid"),
-			results.getInt("current"),
-			results.getTimestamp("timestamp"));
+		PCs_info info = new PCs_info();
+		info.buildingId = buildingId;
+		info.current = results.getInt("current");
+		info.timeStamp = results.getTimestamp("timestamp").getTime();
 		building.pcsInfo.add(info);
 	    }
 
@@ -81,6 +96,33 @@ public class Building {
 	return result;
     }
 
+    public static String getNameFromId(long buildingId) {
+	Connection connection = DatabasePostgres.getConnection();
+	PreparedStatement pStatement;
+	String result = null;
+
+	try {
+	    pStatement = connection
+		    .prepareStatement("SELECT name FROM building WHERE id = ?");
+	    pStatement.setLong(1, buildingId);
+
+	    ResultSet results = pStatement.executeQuery();
+
+	    if (results.next()) {
+		result = results.getString("name");
+	    }
+
+	    results.close();
+	    pStatement.close();
+	    connection.close();
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
+	return result;
+    }
+
     public static Long findIdFromName(String buildingName) {
 	Connection connection = DatabasePostgres.getConnection();
 	PreparedStatement pStatement;
@@ -88,7 +130,7 @@ public class Building {
 
 	try {
 	    pStatement = connection
-		    .prepareStatement("SELECT * FROM building WHERE name = ?");
+		    .prepareStatement("SELECT id FROM building WHERE name = ?");
 	    pStatement.setString(1, buildingName);
 
 	    ResultSet results = pStatement.executeQuery();

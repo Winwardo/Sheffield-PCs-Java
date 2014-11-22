@@ -1,5 +1,7 @@
 package api;
 
+import java.util.Map;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -34,8 +36,18 @@ public class ApiScraper {
     }
 
     @GET
-    @Path("/get/{buildingId}")
-    @ApiOperation(value = "/get/{buildingId}", notes = "Gets the last 48 hours' worth of scrapes for this building.")
+    @Path("/get/nvd3/{buildingId}")
+    @ApiOperation(value = "/get/nvd3/{buildingId}", notes = "Gets the last 48 hours' worth of scrapes for this building, suitable for nvd3.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getBuildingNvd3(@PathParam("buildingId") long buildingId) {
+	Map<String, Object> result = Building.getRecentForNvd3(buildingId);
+
+	return gson.toJson(result);
+    }
+
+    @GET
+    @Path("/get/raw/{buildingId}")
+    @ApiOperation(value = "/get/raw/{buildingId}", notes = "Gets the last 48 hours' worth of scrapes for this building.")
     @Produces(MediaType.APPLICATION_JSON)
     public String getBuilding(@PathParam("buildingId") long buildingId) {
 	Building building = Building.getRecent(buildingId);
