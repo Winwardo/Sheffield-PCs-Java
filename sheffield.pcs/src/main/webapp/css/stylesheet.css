@@ -1,0 +1,30 @@
+h1 {
+	font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;	
+}
+
+#chart {
+	min-height: 400px;
+	height: 400px;
+}
+
+/* Displaying building quick info*/
+ul {
+	padding: 0;
+}
+
+.info_blocks li {
+	list-style-type: none;
+	display: inline-block;
+	width: 49%;
+	/*height: 92px;*/
+	padding: 12px;
+	overflow-y: hidden;
+	/*margin: 0;*/
+	/*margin-left: 16px;*/
+	cursor: pointer;
+	cursor: hand;
+}
+
+.info_blocks li:nth-of-type(4n), .info_blocks li:nth-of-type(4n-3) {
+	background-color: rgb(244, 244, 250);
+}

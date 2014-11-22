@@ -14,6 +14,7 @@ import databaseAccess.DatabasePostgres;
 
 public class Building {
     public long id;
+    public int current;
     public int maximum;
     public String name;
     public String photo;
@@ -34,6 +35,42 @@ public class Building {
 	result.put("values", building.pcsInfo);
 
 	return result;
+    }
+
+    public static Building getCurrent(long buildingId) {
+	Building building = new Building();
+
+	building.id = buildingId;
+	building.name = Building.getNameFromId(buildingId);
+
+	Connection connection = DatabasePostgres.getConnection();
+	PreparedStatement pStatement;
+
+	try {
+	    pStatement = connection
+		    .prepareStatement("SELECT buildingid, current, timestamp FROM current_pcs WHERE buildingid = ? AND timestamp IS NOT NULL ORDER BY timestamp DESC LIMIT 1");
+	    pStatement.setLong(1, buildingId);
+
+	    ResultSet results = pStatement.executeQuery();
+
+	    if (results.next()) {
+		PCs_info info = new PCs_info();
+		info.buildingId = buildingId;
+		info.current = results.getInt("current");
+		building.current = info.current;
+		info.timeStamp = results.getTimestamp("timestamp").getTime();
+		building.pcsInfo.add(info);
+	    }
+
+	    results.close();
+	    pStatement.close();
+	    connection.close();
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
+	return building;
     }
 
     public static Building getRecent(long buildingId) {
