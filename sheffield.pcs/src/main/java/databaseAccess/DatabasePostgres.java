@@ -16,9 +16,12 @@ public class DatabasePostgres {
 	try {
 	    return datasource.getConnection();
 	} catch (final SQLException e) {
+	    System.out.println("No --");
 	    e.printStackTrace();
+	    System.out.println("No database connection.");
 	}
 
+	System.out.println("Null connection!");
 	return null;
     }
 
@@ -31,14 +34,17 @@ public class DatabasePostgres {
 
 	try {
 	    Class.forName("org.postgresql.Driver");
-	} catch (final ClassNotFoundException e) {
-	    System.out.println("No JDBC Driver Found!!");
+	} catch (ClassNotFoundException e) {
+	    // TODO Auto-generated catch block
+	    System.out.println("Not workinginging");
 	    e.printStackTrace();
 	}
 
 	final PoolProperties p = new PoolProperties();
-	p.setUrl("jdbc:postgresql://" + DatabaseLoginInfo.host
-		+ "/sheffieldpcs");
+	String url = "jdbc:postgresql://" + DatabaseLoginInfo.host
+		+ "/sheffieldpcs";
+	System.out.println("Using: " + url);
+	p.setUrl(url);
 	p.setDriverClassName("org.postgresql.Driver");
 	p.setUsername(DatabaseLoginInfo.username);
 	p.setPassword(DatabaseLoginInfo.password);
