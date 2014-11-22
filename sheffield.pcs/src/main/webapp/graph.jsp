@@ -5,25 +5,25 @@
 <script>
 	$(function() {
 		nv.addGraph(function() {
-			var chart = nv.models.stackedAreaChart()
-				.useInteractiveGuideline(true)
-				.rightAlignYAxis(true);
-			
+			var chart = nv.models.stackedAreaChart().useInteractiveGuideline(
+					true).rightAlignYAxis(true);
+
 			var defaultList = [95, 96, 97, 100, 102];
+			//var defaultList = [ 14, 15, 16, 18, 19, 21 ];
 			var data = [];
-			
+
 			for (var i = 0; i < defaultList.length; ++i) {
 				var thing = $.ajax({
-			        type: "GET",
-			        url: "api/scraper/get/nvd3/" + defaultList[i],
-			        cache: false,
-			        async: false
-			    }).responseText;
+					type : "GET",
+					url : "api/scraper/get/nvd3/" + defaultList[i],
+					cache : false,
+					async : false
+				}).responseText;
 				var datum = JSON.parse(thing);
-				
+
 				data.push(datum);
 			}
-			
+
 			chart.x(function(d) {
 				return d.timeStamp;
 			}).y(function(d) {

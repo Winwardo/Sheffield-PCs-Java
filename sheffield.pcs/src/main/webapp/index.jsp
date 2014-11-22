@@ -9,35 +9,39 @@
 <script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
 
 <link rel="icon" href="img/crest_white.gif" />
-<link href="http://bootswatch.com/flatly/bootstrap.min.css"
+<link href="http://bootswatch.com/paper/bootstrap.min.css"
 	rel="stylesheet">
-<link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:400">
 <link rel="stylesheet" type="text/css" href="css/nv.d3.css">
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+<title>Sheffield Uni PCs counter</title>
 </head>
 
 <body>
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Is there space in the IC?!</a>
-			</div>
+			<ul class="nav navbar-nav">
+				<li><a class="navbar-brand" href="#">ShefUniPCs.info</a></li>
+				<li><a href="#ICdata">IC data</a></li>
+				<li><a href="api-docs/">API</a></li>
+				<li><a href="https://github.com/Winwardo/Sheffield-PCs-Java">Source code</a></li>
+			</ul>
+
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="http://winwardo.co.uk">Built by Topher Winward</a></li>
+				<li><a href="http://uk.linkedin.com/in/topherwinward/">Built by Topher Winward</a></li>
 			</ul>
 		</div>
 	</div>
 
-	<div style="height: 60px;"></div>
+	<div style="height: 80px;"></div>
 
-	<div class="container">
-		<h1>Is there space in the IC?!</h1>
+	<div class="container" id="ICdata">
 		<div class="well">
-			<h3>
-				Current number of available PCs in the IC <small>Higher
+			<h2 style="margin-top: 2px;">
+				Current number of available PCs in the IC <br><small>Higher
 					values mean more spaces!</small>
-			</h3>
+			</h2>
 
 			<c:import url="graph.jsp">
 				<c:param name="buildings">14,15,16,18,19,21</c:param>
