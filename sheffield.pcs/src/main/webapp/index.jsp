@@ -69,8 +69,7 @@
 		</div>
 		<hr>
 		<div class="row">
-
-				<c:import url="buildingQuickInfo.jsp"></c:import>
+			<c:import url="buildingQuickInfo.jsp"></c:import>
 		</div>
 	</div>
 </body>
@@ -94,22 +93,22 @@
 	}
 
 	function ICBuildings() {
-		// var selectedBuildings = [ 14, 15, 16, 18, 19, 21 ];
-		var selectedBuildings = [ 95, 96, 97, 100, 102 ];
+		 var selectedBuildings = [ 14, 15, 16, 18, 19, 20, 21 ];
+		selectedBuildings = [ 95, 96, 97, 100, 102 ];
 
 		localStorage.setItem("selectedBuildings", selectedBuildings);
 	}
 
 	function MappinBuildings() {
-		// var selectedBuildings = [ 14, 15, 16, 18, 19, 21 ];
-		var selectedBuildings = [ 111, 112, 113 ];
+		var selectedBuildings = [ 29, 30, 31 ];
+		selectedBuildings = [ 111, 112, 113 ];
 
 		localStorage.setItem("selectedBuildings", selectedBuildings);
 	}
 
 	function WesternBankBuildings() {
-		// var selectedBuildings = [ 14, 15, 16, 18, 19, 21 ];
-		var selectedBuildings = [ 106, 108, 107, 108, 109 ];
+		var selectedBuildings = [ 25, 26, 27, 28, 39 ];
+		selectedBuildings = [ 106, 108, 107, 108, 109 ];
 
 		localStorage.setItem("selectedBuildings", selectedBuildings);
 	}
@@ -120,9 +119,7 @@
 
 	function addBuilding(buildingId) {
 		var current = getCurrentBuildings();
-		console.log(current);
 		current.push(buildingId);
-		console.log(current);
 		localStorage.setItem("selectedBuildings", current);
 	}
 
@@ -145,7 +142,6 @@
 		$(".buildingInfo").each(function(i, e) {
 			var $e = $(e);
 			var buildingId = $e.data("buildingid");
-			console.log($e, buildingId);
 
 			if (testBuilding(buildingId)) {
 				$e.addClass("selected");

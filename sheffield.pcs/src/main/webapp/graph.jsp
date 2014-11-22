@@ -8,10 +8,12 @@
 			var chart = nv.models.stackedAreaChart().useInteractiveGuideline(
 					true).rightAlignYAxis(true);
 
-			var defaultList = [ <%= request.getParameter("buildings")%> ];
+			var defaultList = [ <% System.out.println( request.getParameter("buildings") ); out.println( request.getParameter("buildings") );%> ];
 			var data = [];
 
-			for (var i = 0; i < defaultList.length; ++i) {
+			for (var i = 0; i < defaultList.length; ++i) {				
+				if (defaultList[i] == null) { continue; }
+				
 				var thing = $.ajax({
 					type : "GET",
 					url : "api/scraper/get/nvd3/" + defaultList[i],
@@ -19,10 +21,11 @@
 					async : false
 				}).responseText;
 				var datum = JSON.parse(thing);
-
+				
+				if (datum.values.length == 0) { continue; }				
 				data.push(datum);
-			}
-
+			}			
+			
 			chart.x(function(d) {
 				return d.timeStamp;
 			}).y(function(d) {
