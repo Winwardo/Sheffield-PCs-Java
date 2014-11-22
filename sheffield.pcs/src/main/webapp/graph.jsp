@@ -11,7 +11,9 @@
 <script>
 	$(function() {
 		nv.addGraph(function() {
-			var chart = nv.models.stackedAreaChart();
+			var chart = nv.models.stackedAreaChart()
+				.useInteractiveGuideline(true)
+				.rightAlignYAxis(true);
 			
 			var defaultList = [95, 96, 97, 100, 102];
 			var data = [];
@@ -23,7 +25,9 @@
 			        cache: false,
 			        async: false
 			    }).responseText;
-				data.push(JSON.parse(thing));
+				var datum = JSON.parse(thing);
+				
+				data.push(datum);
 			}
 			
 			chart.x(function(d) {

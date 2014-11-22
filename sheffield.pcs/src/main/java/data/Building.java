@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,7 @@ public class Building {
     public static Map<String, Object> getRecentForNvd3(long buildingId) {
 	Map<String, Object> result = new HashMap<String, Object>();
 	Building building = getRecent(buildingId);
+	Collections.reverse(building.pcsInfo);
 
 	result.put("key", building.name);
 	result.put("values", building.pcsInfo);
