@@ -37,29 +37,31 @@ public class Building {
 	return result;
     }
 
-    public static Building getCurrent(long buildingId) {
+    public static Building get(long buildingId) {
 	Building building = new Building();
 
 	building.id = buildingId;
-	building.name = Building.getNameFromId(buildingId);
 
 	Connection connection = DatabasePostgres.getConnection();
 	PreparedStatement pStatement;
 
 	try {
 	    pStatement = connection
-		    .prepareStatement("SELECT buildingid, current, timestamp FROM current_pcs WHERE buildingid = ? AND timestamp IS NOT NULL ORDER BY timestamp DESC LIMIT 1");
+		    .prepareStatement("SELECT building.*, current, timestamp FROM current_pcs, building "
+			    + "WHERE buildingid = ? AND building.id = current_pcs.buildingid "
+			    + "AND timestamp IS NOT NULL "
+			    + "ORDER BY timestamp DESC LIMIT 1");
 	    pStatement.setLong(1, buildingId);
 
 	    ResultSet results = pStatement.executeQuery();
 
 	    if (results.next()) {
-		PCs_info info = new PCs_info();
-		info.buildingId = buildingId;
-		info.current = results.getInt("current");
-		building.current = info.current;
-		info.timeStamp = results.getTimestamp("timestamp").getTime();
-		building.pcsInfo.add(info);
+		building.name = results.getString("name");
+		building.photo = results.getString("photo");
+		building.current = results.getInt("current");
+		building.latitude = results.getDouble("latitude");
+		building.longitude = results.getDouble("longitude");
+		building.maximum = results.getInt("maximum");
 	    }
 
 	    results.close();
