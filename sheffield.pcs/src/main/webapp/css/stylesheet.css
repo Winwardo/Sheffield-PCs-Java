@@ -3,6 +3,10 @@
 	height: 400px;
 }
 
+#pcs_graph {
+	text-align: center;
+}
+
 /* Displaying building quick info*/
 ul {
 	padding: 0;
@@ -23,4 +27,8 @@ ul {
 
 .info_blocks li:nth-of-type(4n), .info_blocks li:nth-of-type(4n-3) {
 	background-color: rgb(244, 244, 250);
+}
+
+.selected {
+	background-color: rgb(168, 213, 172) !important;
 }

@@ -8,8 +8,7 @@
 			var chart = nv.models.stackedAreaChart().useInteractiveGuideline(
 					true).rightAlignYAxis(true);
 
-			var defaultList = [95, 96, 97, 100, 102];
-			//var defaultList = [ 14, 15, 16, 18, 19, 21 ];
+			var defaultList = [ <%= request.getParameter("buildings")%> ];
 			var data = [];
 
 			for (var i = 0; i < defaultList.length; ++i) {
