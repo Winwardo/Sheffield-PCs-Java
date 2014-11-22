@@ -25,7 +25,8 @@ ul {
 	cursor: hand;
 }
 
-.info_blocks li:nth-of-type(4n), .info_blocks li:nth-of-type(4n-3) {
+/*.info_blocks li:nth-of-type(4n), .info_blocks li:nth-of-type(4n-3) {*/
+.info_blocks li:nth-of-type(8n), .info_blocks li:nth-of-type(8n-2), .info_blocks li:nth-of-type(8n-5), .info_blocks li:nth-of-type(8n-7) {
 	background-color: rgb(244, 244, 250);
 }
 
