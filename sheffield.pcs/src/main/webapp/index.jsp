@@ -70,13 +70,7 @@
 		<hr>
 		<div class="row">
 
-			<div class="col-md-8" id="infosection">
 				<c:import url="buildingQuickInfo.jsp"></c:import>
-			</div>
-			<div class="col-md-4 hidden-sm" id="moreinfo">
-				<div id="pusher"></div>
-				{{> moreinfo}}
-			</div>
 		</div>
 	</div>
 </body>
