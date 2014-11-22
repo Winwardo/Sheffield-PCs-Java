@@ -165,7 +165,9 @@ public class DataEntry {
 	    // Now insert dummy rows into any buildings that weren't included in
 	    // this scrape
 	    for (Long buildingId : currentIds) {
-		assert insertPCsRow(connection, buildingId, 0, sqlDate) : "Dummy PCs row failed to insert.";
+		boolean inserted = insertPCsRow(connection, buildingId, 0,
+			sqlDate);
+		assert inserted : "Dummy PCs row failed to insert.";
 	    }
 
 	    connection.commit();
