@@ -5,6 +5,8 @@
 	    List<Long> buildingIds = Building.getAllIds();
 			for (Long buildingId : buildingIds) {
 	    	Building building = Building.get(buildingId);
+	    	if (building.name == null) { continue; }
+	    	
 	    	String labelType = "label label-success";
 	    	if (building.current < 5) {
 	    	    labelType = "label label-danger";

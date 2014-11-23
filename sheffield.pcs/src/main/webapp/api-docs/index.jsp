@@ -25,7 +25,7 @@
   <script type="text/javascript">
     $(function () {
       window.swaggerUi = new SwaggerUi({
-      url: "http://sheffieldpcs-topherio.rhcloud.com/api/",
+      url: "<%= request.getContextPath() %>/api/api-docs/",
       dom_id: "swagger-ui-container",
       supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
       onComplete: function(swaggerApi, swaggerUi){

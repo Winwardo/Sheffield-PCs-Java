@@ -1,5 +1,7 @@
 package api;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.GET;
@@ -41,6 +43,32 @@ public class ApiScraper {
     @Produces(MediaType.APPLICATION_JSON)
     public String getBuildingNvd3(@PathParam("buildingId") long buildingId) {
 	Map<String, Object> result = Building.getRecentForNvd3(buildingId);
+
+	return gson.toJson(result);
+    }
+
+    @GET
+    @Path("/get/nvd3_many/{buildingIds}")
+    @ApiOperation(value = "/get/nvd3_many/{buildingIds}", notes = "Gets the last 48 hours' worth of scrapes for the given building ids (comma delimited), suitable for nvd3.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getBuildingNvd3(@PathParam("buildingIds") String buildingIds) {
+	List<Map<String, Object>> result = new LinkedList<Map<String, Object>>();
+
+	String[] ids = buildingIds.split(",");
+	for (String id : ids) {
+	    try {
+		long buildingId = Long.parseLong(id);
+		Map<String, Object> datum = Building
+			.getRecentForNvd3(buildingId);
+
+		// Remove empty data
+		if (datum.get("key") != null) {
+		    result.add(datum);
+		}
+	    } catch (Exception e) {
+		// Skip
+	    }
+	}
 
 	return gson.toJson(result);
     }
