@@ -10,9 +10,6 @@
 	<content src="phonegap/index.html" />
 	<access origin="*" />
 
-	<preference name="LoadingDialog"
-		value="Sheffield Uni PC info,Is there space in the IC?!" />
 	<preference name="SuppressesIncrementalRendering" value="false" />
-
 	<preference name="permissions" value="none" />
 </widget>
