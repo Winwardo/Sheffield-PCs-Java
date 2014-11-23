@@ -7,7 +7,7 @@
 	<author email="topher@winwardo.co.uk" href="http://winwardo.co.uk">
 		Topher Winward
 	</author>
-	<content src="index.html" />
+	<content src="phonegap/index.html" />
 	<access origin="*" />
 
 	<preference aname="LoadingDialog"
