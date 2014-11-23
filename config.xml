@@ -14,4 +14,6 @@
 	<preference name="LoadingDialog"
 		value="Sheffield Uni PC info,Is there space in the IC?!" />
 	<preference name="SuppressesIncrementalRendering" value="true" />
+
+	<gap:plugin name="net.bgta.phonegap.plugins.appversion" version="1.0.0" />
 </widget>
