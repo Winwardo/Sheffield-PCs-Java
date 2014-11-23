@@ -9,6 +9,7 @@
 			chart.useInteractiveGuideline(true);
 			chart.rightAlignYAxis(true);
 			chart.showControls(false);
+			chart.margin({left: 0});
 
 			var url = "api/scraper/get/nvd3_many/<%=request.getParameter("buildings")%>";
 			var jsonS = $.ajax({
@@ -33,16 +34,19 @@
 			chart.yAxis.tickFormat(d3.format('d'));
 			
 			if ($(window).width() < 1024) {
-				console.log("WHAT");
 				chart.showLegend(false);
 			}
 			
-			d3.select('#chart svg').datum(data).transition().duration(1000)
+			d3.select('#chart svg').datum(data)
 					.call(chart);
 			
+						
+			nv.utils.windowResize(function() {
+				$("#chart").height($("#chart").width() / 1.618);	
+				chart.update();
+			});
+			$(window).resize();
 			
-			
-			nv.utils.windowResize(chart.update);
 			return chart;
 		});
 	});

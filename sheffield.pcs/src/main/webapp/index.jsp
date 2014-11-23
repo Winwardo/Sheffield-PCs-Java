@@ -14,12 +14,10 @@
 <link href="//bootswatch.com/paper/bootstrap.min.css"
 	rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<!--
+
 <link rel="stylesheet" type="text/css" href="css/nv.d3.css">
 <link rel="stylesheet" type="text/css" href="css/nprogress.css">
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
--->
-<link rel="stylesheet" type="text/css" href="css/minified.css">
 
 <!--
 <script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
@@ -33,7 +31,7 @@
 </head>
 
 <body>
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="navbar navbar-default hidden-xs" role="navigation">
 		<div class="container">
 			<ul class="nav navbar-nav">
 				<li><a class="navbar-brand" href="#">ShefUniPCs.info</a></li>
@@ -47,25 +45,25 @@
 		</div>
 	</div>
 
-	<div style="height: 80px;"></div>
-
-	<div class="container-fluid" id="ICdata">
+	<div class="container-fluid" id="ICdata">	
+		<h2 class="visible-xs">ShefUniPCs.info</h2>
+		
 		<div class="well">
 			
 			<div class="row">
-				<div class="col-xs-4">
+				<div class="col-sm-4 hidden-xs">
 					<c:import url="MappinInfo.jsp"></c:import>
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-6 col-sm-4">
 					<c:import url="ICinfo.jsp"></c:import>
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-6 col-sm-4">
 					<c:import url="WesternBankInfo.jsp"></c:import>
 				</div>
 			</div>
 			
 			<hr>
-			<h3 style="text-align: center;">Free PCs over the past 48 hours<br><small>Higher values mean more spaces for you!</small></h3>
+			<h3 style="text-align: center;">Free PCs over the past 48 hours<br><small class="hidden-xs">Higher values mean more spaces for you!</small></h3>
 
 			<div id="pcs_graph">
 				<br> <br> <img src="img/loading.gif" alt="Loading"
@@ -82,12 +80,6 @@
 				<button class="btn btn-default" id="btn-Mappin_pcs">Mappin PCs</button>
 				<button class="btn btn-default" id="btn-WesternBank_pcs">Western Bank PCs</button>
 			</div>
-			<!--
-			<div class="col-md-6">
-				<h5>Actions:</h5>
-				<button class="btn btn-primary" id="btn-refresh">Refresh graph with current selection</button>
-			</div>
-			-->
 		</div>
 		<hr>
 		<div class="row text-center">
