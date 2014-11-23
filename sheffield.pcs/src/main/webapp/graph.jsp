@@ -5,8 +5,10 @@
 <script>
 	$(function() {
 		nv.addGraph(function() {
-			var chart = nv.models.stackedAreaChart().useInteractiveGuideline(
-					true).rightAlignYAxis(true).showControls(false);
+			var chart = nv.models.stackedAreaChart();
+			chart.useInteractiveGuideline(true);
+			chart.rightAlignYAxis(true);
+			chart.showControls(false);
 
 			var url = "api/scraper/get/nvd3_many/<%=request.getParameter("buildings")%>";
 			var jsonS = $.ajax({
@@ -29,9 +31,17 @@
 			});
 
 			chart.yAxis.tickFormat(d3.format('d'));
-			d3.select('#chart svg').datum(data).transition().duration(500)
+			
+			if ($(window).width() < 1024) {
+				console.log("WHAT");
+				chart.showLegend(false);
+			}
+			
+			d3.select('#chart svg').datum(data).transition().duration(1000)
 					.call(chart);
-
+			
+			
+			
 			nv.utils.windowResize(chart.update);
 			return chart;
 		});

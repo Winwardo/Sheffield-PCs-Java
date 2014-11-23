@@ -8,6 +8,7 @@
 <meta property="og:description" content="Displays information about available PCs around Sheffield Uni campus"/>
 <meta property="og:image" content="http://sheffieldpcs-topherio.rhcloud.com/img/facebook-share.png"/>
 <meta property="og:image" content="http://sheffieldpcs-topherio.rhcloud.com/img/crest_white.gif"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="icon" href="img/crest_white.gif" />
 <link href="//bootswatch.com/paper/bootstrap.min.css"
@@ -35,11 +36,11 @@
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<ul class="nav navbar-nav">
-				<li><a class="navbar-brand" href="#"><img src="img/crest_white.gif" style="height: 100%; display: inline-block; margin-top: -1px;"> &nbsp;ShefUniPCs.info</a></li>
+				<li><a class="navbar-brand" href="#">ShefUniPCs.info</a></li>
 			</ul>
 
 
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right hidden-xs">
 				<li><a href="http://uk.linkedin.com/in/topherwinward/">Built
 						by Topher Winward</a></li>
 			</ul>
@@ -52,13 +53,13 @@
 		<div class="well">
 			
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-xs-4">
 					<c:import url="MappinInfo.jsp"></c:import>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-xs-4">
 					<c:import url="ICinfo.jsp"></c:import>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-xs-4">
 					<c:import url="WesternBankInfo.jsp"></c:import>
 				</div>
 			</div>
@@ -97,9 +98,11 @@
 	</div>
 		
 	<div class="container">
-		<h6>Created by <a href="http://uk.linkedin.com/in/topherwinward">Topher Winward</a>. All data retrieved from <a href="https://www.sheffield.ac.uk/cics/findapc/" target="_blank">The University Of Sheffield's Find a PC</a> page. ShefUniPCs.info is not associated with <a href="https://www.sheffield.ac.uk/">The University Of Sheffield</a>.</h6>
-		<br>
+		Created by <a href="http://uk.linkedin.com/in/topherwinward">Topher Winward</a>.<br>
+		All data retrieved from <a href="https://www.sheffield.ac.uk/cics/findapc/" target="_blank">The University Of Sheffield's Find a PC</a> page.<br>
+		ShefUniPCs.info is not associated with <a href="https://www.sheffield.ac.uk/">The University Of Sheffield</a>.
 	</div>
+	<br>
 	
 	<div class="navbar navbar-inverse navbar-bottom" style="margin-bottom: 0;">
 		<div class="container">

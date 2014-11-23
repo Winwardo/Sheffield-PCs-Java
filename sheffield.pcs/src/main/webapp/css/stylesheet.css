@@ -15,7 +15,8 @@ ul {
 .info_blocks li {
 	list-style-type: none;
 	display: inline-block;
-	width: 24.8%;
+	width: 100%;
+	max-width: 300px;
 	padding: 12px;
 	overflow-y: hidden;
 	cursor: pointer;
