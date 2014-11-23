@@ -32,6 +32,8 @@
 <script src="js/minified_before.js" charset="utf-8"></script>
 
 <title>Sheffield Uni PCs counter</title>
+
+<meta http-equiv="refresh" content="300">
 </head>
 
 <body>
