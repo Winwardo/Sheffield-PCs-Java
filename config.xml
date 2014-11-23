@@ -11,9 +11,9 @@
 	<content src="index.html" />
 	<access origin="*" />
 
-	<preference name="LoadingDialog"
+	<preference aname="LoadingDialog"
 		value="Sheffield Uni PC info,Is there space in the IC?!" />
-	<preference name="SuppressesIncrementalRendering" value="true" />
+	<preference name="SuppressesIncrementalRendering" value="false" />
 
 	<feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
