@@ -4,6 +4,10 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
+<meta charset="UTF-8">
+<meta name="author" content="Topher Winward">
+<meta name="description" content="Get realtime availability information about Sheffield University computers.">
+<meta name="keywords" content="Sheffield,University,available,free,pcs,computers,ic,information commons,western bank">
 <meta property="og:title" content="Sheffield Uni PCs Info"/>
 <meta property="og:description" content="Displays information about available PCs around Sheffield Uni campus"/>
 <meta property="og:image" content="http://sheffieldpcs-topherio.rhcloud.com/img/facebook-share.png"/>

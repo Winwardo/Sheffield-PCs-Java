@@ -37,7 +37,7 @@
 				chart.showLegend(false);
 			}
 			
-			d3.select('#chart svg').datum(data)
+			d3.select('#chart svg').datum(data).transition().duration(1000)
 					.call(chart);
 			
 						
