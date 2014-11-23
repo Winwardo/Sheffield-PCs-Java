@@ -17,7 +17,7 @@
 	    	}
 	%>
 	<li data-buildingid="<%=building.id%>" class="buildingInfo"><img
-		src="<%=building.photo%>" alt="<%=building.name%>"
+		id="buildingImg_<%=building.id%>" alt="<%=building.name%>"
 		class="img-circle pull-left"
 		style="height: 72px; width: 72px; margin-right: 8px;"> <strong><%=building.name%></strong>&nbsp;
 
@@ -26,7 +26,11 @@
 		<span class="hidden-xs"><%=building.current%> of <%=building.maximum%>
 			PCs are free.</span>
 			
-		<span class="visible-xs"><%=building.current%>/<%=building.maximum%></span></li>
+		<span class="visible-xs"><%=building.current%>/<%=building.maximum%></span>
+	</li>
+		
+		<script>$(window).load(function() { $("#buildingImg_<%=building.id%>").attr("src", "<%=building.photo%>"); })</script>
+		
 	<%
 	    }
 	%>
