@@ -15,14 +15,15 @@ ul {
 .info_blocks li {
 	list-style-type: none;
 	display: inline-block;
-	width: 24%;
-	/*height: 92px;*/
+	width: 24.8%;
 	padding: 12px;
 	overflow-y: hidden;
-	/*margin: 0;*/
-	/*margin-left: 16px;*/
 	cursor: pointer;
 	cursor: hand;
+	
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;	
 }
 
 /*.info_blocks li:nth-of-type(4n), .info_blocks li:nth-of-type(4n-3) {*/

@@ -19,7 +19,7 @@
 	<li data-buildingid="<%=building.id%>" class="buildingInfo"><img
 		src="<%=building.photo%>" alt="<%=building.name%>"
 		class="img-circle pull-left"
-		style="width: 64px; height: 64px; margin-right: 8px;"> <strong><%=building.name%></strong>&nbsp;
+		style="height: 72px; width: 72px; margin-right: 8px;"> <strong><%=building.name%></strong>&nbsp;
 
 		<span class="<%=labelType%> pull-right"><%=building.current%> free</span><br>
 
