@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget id="io.topher.sheffield.pcs" version="0.1.0">
+	<name>Sheffield PCs Info</name>
+	<description>
+		Displays realtime information about the availability of
+		PCs around Sheffield University campus.
+	</description>
+	<author email="topher@winwardo.co.uk" href="http://winwardo.co.uk">
+		Topher Winward
+	</author>
+	<content src="index.html" />
+	<access origin="*" />
+
+	<preference name="LoadingDialog"
+		value="Sheffield Uni PC info,Is there space in the IC?!" />
+	<preference name="SuppressesIncrementalRendering" value="true" />
+</widget>
