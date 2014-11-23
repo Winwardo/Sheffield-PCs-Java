@@ -6,36 +6,16 @@
 	$(function() {
 		nv.addGraph(function() {
 			var chart = nv.models.stackedAreaChart().useInteractiveGuideline(
-					true).rightAlignYAxis(true);
+					true).rightAlignYAxis(true).showControls(false);
 
-			//var defaultList = [ <%=request.getParameter("buildings")%> ];
-			var data = [];
-
-			/*
-			for (var i = 0; i < defaultList.length; ++i) {				
-				if (defaultList[i] == null) { continue; }
-				
-				var thing = $.ajax({
-					type : "GET",
-					url : "api/scraper/get/nvd3/" + defaultList[i],
-					cache : false,
-					async : false
-				}).responseText;
-				var datum = JSON.parse(thing);
-				
-				if (datum.values.length == 0) { continue; }				
-				data.push(datum);
-			}	
-			*/
 			var url = "api/scraper/get/nvd3_many/<%=request.getParameter("buildings")%>";
 			var jsonS = $.ajax({
 				type : "GET",
 				url : url,
-				cache : false,
+				cache : true,
 				async : false
 			}).responseText;
 			
-			console.log(url, jsonS);
 			var data = JSON.parse(jsonS);
 			
 			chart.x(function(d) {
