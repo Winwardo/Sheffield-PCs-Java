@@ -2,8 +2,7 @@
 <widget id="io.topher.sheffield.pcs" version="0.1.0">
 	<name>Sheffield PCs Info</name>
 	<description>
-		Displays realtime information about the availability of
-		PCs around Sheffield University campus.
+		Displays realtime information about the availability of PCs around Sheffield University campus.
 	</description>
 	<author email="topher@winwardo.co.uk" href="http://winwardo.co.uk">
 		Topher Winward
