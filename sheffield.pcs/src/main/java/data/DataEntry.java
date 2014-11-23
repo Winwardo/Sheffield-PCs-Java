@@ -178,6 +178,7 @@ public class DataEntry {
 		connection.rollback();
 		connection.close();
 	    } catch (SQLException e1) {
+		System.err.println("SEVERE ERROR.");
 		e1.printStackTrace();
 	    }
 	    e.printStackTrace();
