@@ -54,7 +54,13 @@ public class ApiScraper {
     public String getBuildingNvd3(@PathParam("buildingIds") String buildingIds) {
 	List<Map<String, Object>> result = new LinkedList<Map<String, Object>>();
 
-	String[] ids = buildingIds.split(",");
+	String[] ids;
+
+	if (buildingIds == null || "".equals(buildingIds)) {
+	    ids = new String[] { "14" }; // Default to IC level 1
+	} else {
+	    ids = buildingIds.split(",");
+	}
 	for (String id : ids) {
 	    try {
 		long buildingId = Long.parseLong(id);
