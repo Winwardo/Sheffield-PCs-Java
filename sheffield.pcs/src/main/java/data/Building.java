@@ -66,7 +66,7 @@ public class Building {
 	ids.add(Building.findIdFromName("Mappin Building IT Centre - ME04"));
 
 	for (Long id : ids) {
-	    result.add(Building.get(id));
+	    result.add(Building.getRecent(id));
 	}
 
 	return result;
@@ -97,7 +97,7 @@ public class Building {
 		.findIdFromName("Library - Western Bank L6 Architecture"));
 
 	for (Long id : ids) {
-	    result.add(Building.get(id));
+	    result.add(Building.getRecent(id));
 	}
 
 	return result;

@@ -38,16 +38,34 @@
 				left : 0
 			});
 
-			var url = "api/scraper/ic/buildings";
-			var jsonS = $.ajax({
+			var buildingsUrl_IC = "api/scraper/ic/buildings";
+			var buildingJson_IC = $.ajax({
 				type : "GET",
-				url : url,
+				url : buildingsUrl_IC,
 				cache : true,
 				async : false
 			}).responseText;
-			var ICdata = JSON.parse(jsonS);
+			var buildingsData_IC = JSON.parse(buildingJson_IC);
 						
-
+			var buildingsUrl_Mappin = "api/scraper/mappin/buildings";
+			var buildingJson_Mappin = $.ajax({
+				type : "GET",
+				url : buildingsUrl_Mappin,
+				cache : true,
+				async : false
+			}).responseText;
+			var buildingsData_Mappin = JSON.parse(buildingJson_Mappin);
+			
+			var buildingsUrl_Western = "api/scraper/western/buildings";
+			var buildingJson_Western = $.ajax({
+				type : "GET",
+				url : buildingsUrl_Western,
+				cache : true,
+				async : false
+			}).responseText;
+			var buildingsData_Western = JSON.parse(buildingJson_Western);
+			
+			
 			chart.x(function(d) {
 				return d.timeStamp;
 			}).y(function(d) {
@@ -65,8 +83,14 @@
 			}
 
 			var data = [ {
-				key : "IC",
-				values : crunchData(ICdata)
+				key : "Information Commons",
+				values : crunchData(buildingsData_IC)
+			}, {
+				key : "Mapping",
+				values : crunchData(buildingsData_Mappin)
+			}, {
+				key : "Western Bank",
+				values : crunchData(buildingsData_Western)
 			} ]
 
 			d3.select('#chart svg').datum(data).transition().duration(1000)
