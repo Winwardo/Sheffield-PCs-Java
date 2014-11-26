@@ -40,7 +40,7 @@ public class Building {
 	ids.add(Building.findIdFromName("Information Commons L5"));
 
 	for (Long id : ids) {
-	    result.add(Building.get(id));
+	    result.add(Building.getRecent(id));
 	}
 
 	return result;

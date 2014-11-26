@@ -23,12 +23,10 @@
 <link rel="stylesheet" type="text/css" href="css/nprogress.css">
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 
-<!--
-<script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
-<script src="js/d3.v3.min.js" charset="utf-8"></script>
-<script src="js/nv.d3.min.js" charset="utf-8"></script>
-<script src="js/nprogress.js" charset="utf-8"></script>
--->
+<script asrc="js/jquery-2.1.1.min.js" charset="utf-8"></script>
+<script asrc="js/d3.v3.min.js" charset="utf-8"></script>
+<script asrc="js/nv.d3.min.js" charset="utf-8"></script>
+<script asrc="js/nprogress.js" charset="utf-8"></script>
 <script src="js/minified_before.js" charset="utf-8"></script>
 
 <title>Sheffield Uni PCs counter</title>
@@ -113,10 +111,8 @@
 		</div>
 	</div>
 	
-<!--
 <script src="js/main.js" charset="utf-8"></script>
--->
-<script src="js/minified_after.js" charset="utf-8"></script>
+<script asrc="js/minified_after.js" charset="utf-8"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

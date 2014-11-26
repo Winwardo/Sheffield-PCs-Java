@@ -1,6 +1,6 @@
 function loadGraph(buildings) {
 	NProgress.start();
-	$("#pcs_graph").load("graph.jsp", {
+	$("#pcs_graph").load("graph_line.jsp", {
 		buildings : $.unique(buildings).toString()
 	}, function() {
 		NProgress.done();
