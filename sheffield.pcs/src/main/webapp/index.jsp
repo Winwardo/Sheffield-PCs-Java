@@ -27,6 +27,7 @@
 <script asrc="js/d3.v3.min.js" charset="utf-8"></script>
 <script asrc="js/nv.d3.min.js" charset="utf-8"></script>
 <script asrc="js/nprogress.js" charset="utf-8"></script>
+<script src="//underscorejs.org/underscore-min.js" charset="utf-8"></script>
 <script src="js/minified_before.js" charset="utf-8"></script>
 
 <title>Sheffield Uni PCs counter</title>

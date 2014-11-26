@@ -25,7 +25,11 @@
 			crunchedTimes.push({timeStamp: val.timeStamp, current: val.current});
 		}
 		
-		return crunchedTimes.sort().reverse();
+		// Sort
+		var crunchedTimes = _.sortBy(crunchedTimes, function(data) { return data.timeStamp });
+		console.log(crunchedTimes);
+		
+		return crunchedTimes;
 	}
 
 	$(function() {
@@ -84,13 +88,16 @@
 
 			var data = [ {
 				key : "Information Commons",
-				values : crunchData(buildingsData_IC)
+				values : crunchData(buildingsData_IC),
+				area: true
 			}, {
-				key : "Mapping",
-				values : crunchData(buildingsData_Mappin)
+				key : "Mappin Building",
+				values : crunchData(buildingsData_Mappin),
+				area: true
 			}, {
 				key : "Western Bank",
-				values : crunchData(buildingsData_Western)
+				values : crunchData(buildingsData_Western),
+				area: true
 			} ]
 
 			d3.select('#chart svg').datum(data).transition().duration(1000)
