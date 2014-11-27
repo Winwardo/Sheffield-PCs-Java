@@ -87,6 +87,8 @@ $(function() {
 	}
 
 	$(".buildingInfo").click(function(e) {
+		return;
+		
 		// Toggle the building being selected or not
 		var $e = $(e.target);
 		var buildingId = $e.data("buildingid");
@@ -129,6 +131,10 @@ $(function() {
 		WesternBankBuildings();
 		updateBuildingSelectionStyles();
 		loadGraph_();
+	});	
+	
+	$("#btn-toggleBuildingInfo").click(function() {
+		$("#buildingInfo").slideToggle("500");
 	});
 
 	loadGraph_();

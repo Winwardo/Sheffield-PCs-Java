@@ -88,7 +88,10 @@
 		</div>
 		<hr>
 		<div class="row text-center">
-			<c:import url="buildingQuickInfo.jsp"></c:import>
+			<button class="btn btn-primary" id="btn-toggleBuildingInfo">Show all buildings</button>
+			<div id="buildingInfo" style="display: none;">
+				<c:import url="buildingQuickInfo.jsp"></c:import>
+			</div>
 		</div>
 		
 		<hr>
