@@ -82,10 +82,6 @@
 
 			chart.yAxis.tickFormat(d3.format('d'));
 
-			if ($(window).width() < 1024) {
-				chart.showLegend(false);
-			}
-
 			var data = [ {
 				key : "Information Commons",
 				values : crunchData(buildingsData_IC),
@@ -93,6 +89,7 @@
 			}, {
 				key : "Mappin Building",
 				values : crunchData(buildingsData_Mappin),
+				color: "#BAFA9D",
 				area: true
 			}, {
 				key : "Western Bank",
