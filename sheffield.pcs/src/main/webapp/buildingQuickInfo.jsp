@@ -13,7 +13,7 @@
 	    	} else if (building.current < 10) {
 	    	    labelType = "label label-warning";
 	    	} else if (building.current < 20) {
-	    	    labelType = "";
+	    	    labelType = "label label-primary";
 	    	}
 	%>
 	<li data-buildingid="<%=building.id%>" class="buildingInfo"><img

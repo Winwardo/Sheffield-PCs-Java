@@ -23,12 +23,11 @@
 <link rel="stylesheet" type="text/css" href="css/nprogress.css">
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 
-<script asrc="js/jquery-2.1.1.min.js" charset="utf-8"></script>
-<script asrc="js/d3.v3.min.js" charset="utf-8"></script>
-<script asrc="js/nv.d3.min.js" charset="utf-8"></script>
-<script asrc="js/nprogress.js" charset="utf-8"></script>
+<script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
+<script src="js/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/nv.d3.min.js" charset="utf-8"></script>
+<script src="js/nprogress.js" charset="utf-8"></script>
 <script src="//underscorejs.org/underscore-min.js" charset="utf-8"></script>
-<script src="js/minified_before.js" charset="utf-8"></script>
 
 <title>Sheffield Uni PCs counter</title>
 
@@ -68,27 +67,19 @@
 			</div>
 			
 			<hr>
-			<h3 style="text-align: center;">Free PCs over the past 48 hours<br><small class="hidden-xs">Higher values mean more spaces for you!</small></h3>
+			<h3 style="text-align: center;">Free PCs over the past 24 hours<br><small class="hidden-xs">Higher values mean more spaces for you!</small></h3>
 
 			<div id="pcs_graph">
 				<br> <br> <img src="img/loading.gif" alt="Loading"
 					width="92"><br>
 				<h6>Loading...</h6>
 			</div>
-
 		</div>
-
-		<div class="row text-center">
-			<div class="col-md-12">
-				<h5>Quick select:</h5>
-				<button class="btn btn-default" id="btn-IC_pcs">IC PCs</button>
-				<button class="btn btn-default" id="btn-Mappin_pcs">Mappin PCs</button>
-				<button class="btn btn-default" id="btn-WesternBank_pcs">Western Bank PCs</button>
-			</div>
-		</div>
+		
 		<hr>
 		<div class="row text-center">
 			<button class="btn btn-primary" id="btn-toggleBuildingInfo">Show all buildings</button>
+			<br><br>
 			<div id="buildingInfo" style="display: none;">
 				<c:import url="buildingQuickInfo.jsp"></c:import>
 			</div>

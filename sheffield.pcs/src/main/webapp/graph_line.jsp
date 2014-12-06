@@ -37,10 +37,12 @@
 			var chart = nv.models.lineChart();
 			chart.useInteractiveGuideline(true);
 			chart.rightAlignYAxis(true);
-			//chart.showControls(false);
 			chart.margin({
-				left : 0
+				left : 48,
+				right: 48
 			});
+			chart.forceY([0, 450]);
+			//chart.forceX([1417651200629 - 86400000, 1417651200629]);
 
 			var buildingsUrl_IC = "api/scraper/ic/buildings";
 			var buildingJson_IC = $.ajax({
@@ -89,7 +91,7 @@
 			}, {
 				key : "Mappin Building",
 				values : crunchData(buildingsData_Mappin),
-				color: "#BAFA9D",
+				color: "hsl(120, 65%, 75%)",
 				area: true
 			}, {
 				key : "Western Bank",
