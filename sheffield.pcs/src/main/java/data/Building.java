@@ -174,15 +174,28 @@ public class Building {
 
 	try {
 	    pStatement = connection
-		    .prepareStatement("SELECT buildingid, current, timestamp FROM current_pcs WHERE buildingid = ? AND timestamp IS NOT NULL ORDER BY timestamp DESC LIMIT 96");
+		    .prepareStatement("SELECT buildingid, current, timestamp "
+			    + "FROM current_pcs " + "WHERE buildingid = ? "
+			    + "AND timestamp IS NOT NULL "
+			    + "ORDER BY timestamp DESC LIMIT 144");
 	    pStatement.setLong(1, buildingId);
 
 	    ResultSet results = pStatement.executeQuery();
 
-	    while (results.next()) {
+	    // Initial result, set current value
+	    if (results.next()) {
 		PCs_info info = new PCs_info();
 		info.buildingId = buildingId;
 		building.current = results.getInt("current");
+		info.current = results.getInt("current");
+		info.timeStamp = results.getTimestamp("timestamp").getTime();
+		building.pcsInfo.add(info);
+	    }
+
+	    // Rest of pc infos
+	    while (results.next()) {
+		PCs_info info = new PCs_info();
+		info.buildingId = buildingId;
 		info.current = results.getInt("current");
 		info.timeStamp = results.getTimestamp("timestamp").getTime();
 		building.pcsInfo.add(info);
