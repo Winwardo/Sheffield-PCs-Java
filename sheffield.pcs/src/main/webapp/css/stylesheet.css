@@ -36,3 +36,13 @@ ul {
 .selected {
 	background-color: rgb(168, 213, 172) !important;
 }
+
+.light-blue {
+	background-color: #2196f3;
+	color: #F1F6FA;
+	font-weight: 100;
+}
+
+.h4 {
+	margin-top: 0;
+}

@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<div class="navbar navbar-default hidden-xs" role="navigation">
+	<div class="navbar navbar-inverse hidden-xs" role="navigation">
 		<div class="container">
 			<ul class="nav navbar-nav">
 				<li><a class="navbar-brand" href="#">ShefUniPCs.info</a></li>
@@ -49,10 +49,10 @@
 		</div>
 	</div>
 
-	<div class="container-fluid" id="ICdata">	
-		<h2 class="visible-xs">ShefUniPCs.info</h2>
+	<div class="big-group" id="ICdata">	
+		<h2 class="visible-xs text-center light-blue" style="margin: 0px; padding-top: 12px; padding-bottom: 0px">ShefUniPCs.info <hr></h2>
 		
-		<div class="well">
+		<div class="container-fluid">
 			
 			<div class="row">
 				<div class="col-sm-4 hidden-xs">
@@ -66,19 +66,50 @@
 				</div>
 			</div>
 			
-			<hr>
-			<h3 style="text-align: center;">Free PCs over the past 24 hours<br><small class="hidden-xs">Higher values mean more spaces for you!</small></h3>
-
+			<br>
+		</div>
+		
+		<div style="background-color: #f4f4f4; padding-bottom: 16px; margin-bottom: 16px" class="container-fluid">		
+			<h3 class="text-center">
+				<span class="hidden-xs">Free PCs over the past 24 hours<br></span>
+				<span class="visible-xs">Past 24 hours<br></span>
+				<small class="hidden-xs">Higher values mean more spaces for you!</small>
+			</h3>
+			
 			<div id="pcs_graph">
 				<br> <br> <img src="img/loading.gif" alt="Loading"
 					width="92"><br>
 				<h6>Loading...</h6>
+			</div>			
+		</div>
+		
+		<div class="container">	
+			<div class="col-md-6">
+				<h4 class="text-center">Notes:</h4>
+				<ul>
+					<li>Larger numbers mean more free PCs to use.</li>
+					<li>IC = Information Commons, Mp = Mapping Building, WB = Western Bank.</li>
+					<li>All data is accurate up to 10 minutes ago.</li>
+					<li>Tap for more information.</li>
+				</ul>
+			</div>
+		
+			<hr class="visible-xs visible-sm">
+		
+			<div class="col-md-6">
+				<h4 class="text-center">Tips on getting a PC</h4>
+				<ul>
+					<li>Arrive before 9am, or after midnight for best luck.</li>
+					<li>On weekdays, people tend to leave 5-10 minutes before the hour to get to lectures.</li>
+					<li>Mappin tends to have a lot of spaces, check out ME03 and ME04.</li>
+				</ul>
 			</div>
 		</div>
 		
 		<hr>
+		
 		<div class="row text-center">
-			<button class="btn btn-primary" id="btn-toggleBuildingInfo">Show all buildings</button>
+			<button class="btn btn-primary" id="btn-toggleBuildingInfo">Show info on all buildings</button>
 			<br><br>
 			<div id="buildingInfo" style="display: none;">
 				<c:import url="buildingQuickInfo.jsp"></c:import>
@@ -99,8 +130,9 @@
 		<div class="container">
 			<ul class="nav navbar-nav">
 				<li><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshefunipcs.info&width=72&layout=button_count&action=like&show_faces=true&share=true&height=21&appId=1503292819886184" target="_blank"><i class="fa fa-facebook-square"></i> &nbsp;Share on Facebook</a></li>
-				<li><a href="https://twitter.com/intent/tweet?url=http://ShefUniPCs.info" target="_blank"><i class="fa fa-twitter-square"></i> &nbsp;Tweet about this</a></li>
-				<li><a href="api-docs/" target="_blank"><i class="fa fa-database"></i> &nbsp;API</a></li>
+				<li><a href="https://twitter.com/intent/tweet?url=http://ShefUniPCs.info" target="_blank"><i class="fa fa-twitter"></i> &nbsp;Tweet about this</a></li>
+				<li><a href="mailto:crwinward1@sheffield.ac.uk?subject:Sheffield%20PCs%20app%20feedback"><i class="fa fa-envelope"></i> &nbsp;Email me feedback and thoughts</a></li>
+				<li><a href="api-docs/" target="_blank"><i class="fa fa-database"></i> &nbsp;API for nerds</a></li>
 				<li><a href="https://github.com/Winwardo/Sheffield-PCs-Java" target="_blank"><i class="fa fa-github"></i> &nbsp;View on GitHub</a></li>
 			</ul>
 		</div>

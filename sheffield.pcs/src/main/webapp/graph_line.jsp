@@ -38,8 +38,8 @@
 			chart.useInteractiveGuideline(true);
 			chart.rightAlignYAxis(true);
 			chart.margin({
-				left : 48,
-				right: 48
+				left : 28,
+				right: 36
 			});
 			chart.forceY([0, 450]);
 			//chart.forceX([1417651200629 - 86400000, 1417651200629]);
@@ -85,16 +85,16 @@
 			chart.yAxis.tickFormat(d3.format('d'));
 
 			var data = [ {
-				key : "Information Commons",
+				key : "IC",
 				values : crunchData(buildingsData_IC),
 				area: true
 			}, {
-				key : "Mappin Building",
+				key : "Mp",
 				values : crunchData(buildingsData_Mappin),
 				color: "hsl(120, 65%, 75%)",
 				area: true
 			}, {
-				key : "Western Bank",
+				key : "WB",
 				values : crunchData(buildingsData_Western),
 				area: true
 			} ]
