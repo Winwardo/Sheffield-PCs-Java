@@ -51,3 +51,7 @@ ul {
 .h4 {
 	margin-top: 0;
 }
+
+.nvd3 .nv-axis line {
+	stroke: #D8D8D8;
+}

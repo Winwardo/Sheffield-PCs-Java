@@ -42,7 +42,6 @@
 				right: 36
 			});
 			chart.forceY([0, 450]);
-			//chart.forceX([1417651200629 - 86400000, 1417651200629]);
 
 			var buildingsUrl_IC = "api/scraper/ic/buildings";
 			var buildingJson_IC = $.ajax({
@@ -78,8 +77,29 @@
 				return d.current;
 			});
 
-			chart.xAxis.showMaxMin(true).tickFormat(function(d) {
-				return d3.time.format('%a, %H:%M')(new Date(d));
+			var rightNow = new Date(1417621811714);
+			var hourGaps = 4;
+			var width = $(window).width();
+			if (width > 550) {
+				hourGaps = 3;
+			}
+			if (width > 800) {
+				hourGaps = 2;
+			}
+			
+			var oneHour = 3600000;
+			
+			var hours = Math.floor(rightNow.getHours() / hourGaps) * hourGaps; // Round to the axis
+			
+			rightNow.setHours(hours, 0, 0);
+			var now = rightNow.getTime();
+			
+			var gap = oneHour * hourGaps;
+			
+			chart.xAxis.showMaxMin(true)
+				.tickValues([now - gap*13, now - gap*12, now - gap*11, now - gap*10, now - gap*9, now - gap*8, now - gap*7, now - gap*6, now - gap*5, now - gap*4, now - gap*3, now - gap*2, now - gap, now])
+				.tickFormat(function(d) {
+				return d3.time.format('%H:%M')(new Date(d));
 			});
 
 			chart.yAxis.tickFormat(d3.format('d'));
@@ -99,7 +119,9 @@
 				area: true
 			} ]
 
-			d3.select('#chart svg').datum(data).transition().duration(1000)
+			chart.interpolate("basis");
+			
+			d3.select('#chart svg').datum(data).transition().duration(0)
 					.call(chart);
 
 			nv.utils.windowResize(function() {

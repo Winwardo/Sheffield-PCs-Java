@@ -50,7 +50,7 @@
 	</div>
 
 	<div class="big-group" id="ICdata">	
-		<h2 class="visible-xs text-center light-blue" style="margin: 0px; padding-top: 12px; padding-bottom: 0px">ShefUniPCs.info <hr></h2>
+		<h2 class="visible-xs text-center light-blue" style="margin: 0px; padding-top: 16px; padding-bottom: 0px; font-size: 3em">ShefUniPCs.info <hr></h2>
 		
 		<div class="container-fluid">
 			
@@ -109,7 +109,7 @@
 		<hr>
 		
 		<div class="row text-center">
-			<button class="btn btn-primary" id="btn-toggleBuildingInfo">Show info on all buildings</button>
+			<button class="btn btn-primary" id="btn-toggleBuildingInfo">Show info on all buildings<br>(Displays a long list)</button>
 			<br><br>
 			<div id="buildingInfo" style="display: none;">
 				<c:import url="buildingQuickInfo.jsp"></c:import>
