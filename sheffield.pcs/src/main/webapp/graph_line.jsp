@@ -77,7 +77,7 @@
 				return d.current;
 			});
 
-			var rightNow = new Date(1417621811714);
+			var rightNow = new Date();
 			var hourGaps = 4;
 			var width = $(window).width();
 			if (width > 550) {
