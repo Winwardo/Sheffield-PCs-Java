@@ -27,7 +27,6 @@
 		
 		// Sort
 		var crunchedTimes = _.sortBy(crunchedTimes, function(data) { return data.timeStamp });
-		console.log(crunchedTimes);
 		
 		return crunchedTimes;
 	}
@@ -38,8 +37,8 @@
 			chart.useInteractiveGuideline(true);
 			chart.rightAlignYAxis(true);
 			chart.margin({
-				left : 28,
-				right: 36
+				left : 20,
+				right: 30
 			});
 			chart.forceY([0, 450]);
 
@@ -109,12 +108,12 @@
 				values : crunchData(buildingsData_IC),
 				area: true
 			}, {
-				key : "Mp",
+				key : "Mappin",
 				values : crunchData(buildingsData_Mappin),
 				color: "hsl(120, 65%, 75%)",
 				area: true
 			}, {
-				key : "WB",
+				key : "Western Bank",
 				values : crunchData(buildingsData_Western),
 				area: true
 			} ]

@@ -31,7 +31,6 @@
 
 <title>Sheffield Uni PCs counter</title>
 
-<meta http-equiv="refresh" content="300">
 </head>
 
 <body>
@@ -52,7 +51,7 @@
 	<div class="big-group" id="ICdata">	
 		<h2 class="visible-xs text-center light-blue" style="margin: 0px; padding-top: 16px; padding-bottom: 0px; font-size: 3em">ShefUniPCs.info <hr></h2>
 		
-		<div class="container-fluid">
+		<div class="container">
 			
 			<div class="row">
 				<div class="col-sm-4 hidden-xs">
@@ -69,34 +68,28 @@
 			<br>
 		</div>
 		
-		<div style="background-color: #f4f4f4; padding-bottom: 16px; margin-bottom: 16px" class="container-fluid">		
-			<h3 class="text-center">
-				<span class="hidden-xs">Free PCs over the past 24 hours<br></span>
-				<span class="visible-xs">Past 24 hours<br></span>
-				<small class="hidden-xs">Higher values mean more spaces for you!</small>
-			</h3>
-			
-			<div id="pcs_graph">
-				<br> <br> <img src="img/loading.gif" alt="Loading"
-					width="92"><br>
-				<h6>Loading...</h6>
-			</div>			
+		<div style="background-color: #f4f4f4; padding-bottom: 16px; margin-bottom: 16px" class="container-fluida">	
+			<div class="container">	
+				<h3 class="text-center">
+					<span class="hidden-xs">Free PCs over the past 24 hours<br></span>
+					<small class="hidden-xs">Higher values mean more spaces for you!</small>
+					
+					<span class="visible-xs">Recent free PCs<br></span>
+					<small class="visible-xs">Higher values are better</small>
+				</h3>
+				
+				<div id="pcs_graph">
+					<br> <br> <img src="img/loading.gif" alt="Loading"
+						width="92"><br>
+					<h6>Loading...</h6>
+				</div>
+				
+				<span>Last updated: <span id="last-updated"></span></span>
+			</div>
 		</div>
 		
-		<div class="container">	
-			<div class="col-md-6">
-				<h4 class="text-center">Notes:</h4>
-				<ul>
-					<li>Larger numbers mean more free PCs to use.</li>
-					<li>IC = Information Commons, Mp = Mapping Building, WB = Western Bank.</li>
-					<li>All data is accurate up to 10 minutes ago.</li>
-					<li>Tap for more information.</li>
-				</ul>
-			</div>
-		
-			<hr class="visible-xs visible-sm">
-		
-			<div class="col-md-6">
+		<div class="container">
+			<div class="col-md-12">
 				<h4 class="text-center">Tips on getting a PC</h4>
 				<ul>
 					<li>Arrive before 9am, or after midnight for best luck.</li>

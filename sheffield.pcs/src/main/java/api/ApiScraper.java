@@ -120,6 +120,15 @@ public class ApiScraper {
     }
 
     @GET
+    @Path("/newest/time")
+    @ApiOperation(value = "/newest/time", notes = "Returns the time of the most recent scrape as Unix timestamp.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getNewestTime() {
+	WebScraper scraper = new WebScraper();
+	return gson.toJson(scraper.mostRecentScrapeTime().getTime());
+    }
+
+    @GET
     @Path("/ic/current")
     @ApiOperation(value = "/ic/current", notes = "Returns how many spaces are currently available in the IC.")
     @Produces(MediaType.APPLICATION_JSON)

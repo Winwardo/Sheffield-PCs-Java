@@ -6,13 +6,45 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 
 import com.google.gson.Gson;
 
 import data.jsonIn.OverallData;
+import databaseAccess.DatabasePostgres;
 
 public class WebScraper {
     Gson gson;
+
+    public Date mostRecentScrapeTime() {
+	Connection connection = DatabasePostgres.getConnection();
+	PreparedStatement pStatement;
+	Date result = null;
+
+	try {
+	    pStatement = connection
+		    .prepareStatement("SELECT timestamp FROM current_pcs ORDER BY timestamp DESC LIMIT 1");
+
+	    ResultSet results = pStatement.executeQuery();
+
+	    if (results.next()) {
+		result = results.getDate("timestamp");
+	    }
+
+	    results.close();
+	    pStatement.close();
+	    connection.close();
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
+	return result;
+    }
 
     public String getJson(String url) {
 	String result = "";
