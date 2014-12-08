@@ -14,8 +14,7 @@ import com.wordnik.swagger.config.ConfigFactory;
 @Api(value = "/meta", description = "General info about the system, user")
 public class ApiMeta {
     static {
-	ConfigFactory.config().setBasePath(
-		"http://sheffieldpcs-topherio.rhcloud.com/api/");
+	ConfigFactory.config().setBasePath("http://www.shefunipcs.info/api/");
     }
 
     @GET
@@ -23,16 +22,15 @@ public class ApiMeta {
     @ApiOperation(value = "/info", notes = "Returns info about Sheffield PCs.")
     @Produces(MediaType.APPLICATION_JSON)
     public String info() {
-	return "{version: \"0.1.0\"}";
+	return "{version: \"1.0.0\"}";
     }
 
     @GET
     @Path("/docs/web")
-    @ApiOperation(value = "/docs/web", notes = "Sets the Swagger basepath to http://sheffieldpcs-topherio.rhcloud.com/api")
+    @ApiOperation(value = "/docs/web", notes = "Sets the Swagger basepath to http://www.shefunipcs.info/api")
     @Produces(MediaType.APPLICATION_JSON)
     public String swaggerWeb() {
-	ConfigFactory.config().setBasePath(
-		"http://sheffieldpcs-topherio.rhcloud.com/api");
+	ConfigFactory.config().setBasePath("http://www.shefunipcs.info/api");
 	final String result = ConfigFactory.config().getBasePath();
 
 	return new Gson().toJson(result);

@@ -84,7 +84,7 @@
 					<h6>Loading...</h6>
 				</div>
 				
-				<span>Last updated: <span id="last-updated"></span></span>
+				<small>Last updated: <span id="last-updated"></span></small>
 			</div>
 		</div>
 		
@@ -124,7 +124,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshefunipcs.info&width=72&layout=button_count&action=like&show_faces=true&share=true&height=21&appId=1503292819886184" target="_blank"><i class="fa fa-facebook-square"></i> &nbsp;Share on Facebook</a></li>
 				<li><a href="https://twitter.com/intent/tweet?url=http://ShefUniPCs.info" target="_blank"><i class="fa fa-twitter"></i> &nbsp;Tweet about this</a></li>
-				<li><a href="mailto:crwinward1@sheffield.ac.uk?subject:Sheffield%20PCs%20app%20feedback"><i class="fa fa-envelope"></i> &nbsp;Email me feedback and thoughts</a></li>
+				<li><a href="mailto:crwinward1@sheffield.ac.uk?subject:Sheffield%20PCs%20app%20feedback"><i class="fa fa-envelope"></i> &nbsp;Email me</a></li>
 				<li><a href="api-docs/" target="_blank"><i class="fa fa-database"></i> &nbsp;API for nerds</a></li>
 				<li><a href="https://github.com/Winwardo/Sheffield-PCs-Java" target="_blank"><i class="fa fa-github"></i> &nbsp;View on GitHub</a></li>
 			</ul>
