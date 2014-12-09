@@ -102,7 +102,7 @@
 		<hr>
 		
 		<div class="row text-center">
-			<button class="btn btn-success" id="btn-findAPc">Find me a close PC!</button>
+			<button class="btn btn-success btn-lg" id="btn-findAPc">Find me a close PC!</button>
 			<br class="visible-xs"><br class="visible-xs">
 			<button class="btn btn-primary" id="btn-showAllPcs">Show me all PCs!</button>
 			<br><br>

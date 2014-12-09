@@ -57,7 +57,7 @@
 			}
 			
 			var newIframe = '<iframe height="' + (screen.height * 0.8) + '" frameborder="0" style="border:0; width: 100%" ' +
-			'src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCbVcFBitwviRnQhYObbnN9UyYhNbxDH9M' +
+			'src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyC0Hf436jiPNvDrKX8Dh-81QSW5Hz1fXNU' +
 			'&origin=<%=latitude%>,<%=longitude%>' +
 			'&destination=' + $e.data("latitude") + ',' + $e.data("longitude") +
 			'&mode=walking' +
