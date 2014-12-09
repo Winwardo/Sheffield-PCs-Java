@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget id="io.topher.sheffield.pcs" version="0.1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="io.topher.sheffield.pcs" version="0.1.0">
 	<name>Sheffield PCs Info</name>
 	<description>
 		Displays realtime information about the availability of PCs around Sheffield University campus.
@@ -12,5 +12,7 @@
 
 	<preference name="SuppressesIncrementalRendering" value="false" />
 	<preference name="permissions" value="none" />
+
+	<!-- Core plugins -->
 	<gap:plugin name="org.apache.cordova.geolocation" />
 </widget>
