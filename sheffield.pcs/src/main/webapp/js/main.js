@@ -13,9 +13,29 @@ function updateData(buildings) {
 }
 
 // jQuery calls
-$(function() {	
-	$("#btn-toggleBuildingInfo").click(function() {
-		$("#buildingInfo").slideToggle("500");
+$(function() {
+	$("#btn-showAllPcs").click(function() {
+		NProgress.start();
+		$("#buildingInfo").load("buildingQuickInfo.jsp", function() {
+			$("#buildingInfo").slideDown("500");
+			NProgress.done();
+		});
+	});
+
+	$("#btn-findAPc").click(function() {
+		NProgress.start();
+		
+		var handle_error = function(error) {
+			alert("Can't find you a PC without your location!");
+			NProgress.done();			
+		}
+		
+		navigator.geolocation.getCurrentPosition(function(position, handle_error) {				
+			$("#buildingInfo").load("buildingClosest.jsp?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude + "&minimum=10", function() {
+				$("#buildingInfo").slideDown("500");
+				NProgress.done();
+			});			
+		});		
 	});
 
 	updateData();

@@ -1,5 +1,6 @@
 <%@ page
 	import="java.util.*, data.*"%>
+	
 <ul class="info_blocks">
 	<%
 	    List<Long> buildingIds = Building.getAllIds();
@@ -16,7 +17,7 @@
 	    	    labelType = "label label-primary";
 	    	}
 	%>
-	<li data-buildingid="<%=building.id%>" class="buildingInfo"><img
+	<li data-buildingid="<%=building.id%>" data-latitude="<%=building.latitude%>" data-longitude="<%=building.longitude%>" class="buildingInfo"><img
 		id="buildingImg_<%=building.id%>" alt="<%=building.name%>"
 		class="img-circle pull-left"
 		style="height: 72px; width: 72px; margin-right: 8px;"> <strong><%=building.name%></strong>&nbsp;
@@ -29,7 +30,7 @@
 		<span class="visible-xs"><%=building.current%>/<%=building.maximum%></span>
 	</li>
 		
-		<script>$(window).load(function() { $("#buildingImg_<%=building.id%>").attr("src", "<%=building.photo%>"); })</script>
+		<script>$(function() { $("#buildingImg_<%=building.id%>").attr("src", "<%=building.photo%>"); })</script>
 		
 	<%
 	    }

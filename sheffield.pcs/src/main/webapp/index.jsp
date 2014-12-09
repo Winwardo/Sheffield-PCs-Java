@@ -102,11 +102,17 @@
 		<hr>
 		
 		<div class="row text-center">
-			<button class="btn btn-primary" id="btn-toggleBuildingInfo">Show info on all buildings<br>(Displays a long list)</button>
+			<button class="btn btn-success" id="btn-findAPc">Find me a close PC!</button>
+			<br class="visible-xs"><br class="visible-xs">
+			<button class="btn btn-primary" id="btn-showAllPcs">Show me all PCs!</button>
 			<br><br>
 			<div id="buildingInfo" style="display: none;">
-				<c:import url="buildingQuickInfo.jsp"></c:import>
+				<img src="img/loading.gif" alt="Loading" width="92">
 			</div>
+		</div>
+		
+		<div id="map-location">
+			
 		</div>
 		
 		<hr>
