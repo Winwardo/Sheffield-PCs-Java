@@ -22,7 +22,7 @@ public class ApiMeta {
     @ApiOperation(value = "/info", notes = "Returns info about Sheffield PCs.")
     @Produces(MediaType.APPLICATION_JSON)
     public String info() {
-	return "{version: \"1.0.0\"}";
+	return "{version: \"1.1.0\"}";
     }
 
     @GET

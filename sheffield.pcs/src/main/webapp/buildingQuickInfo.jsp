@@ -21,7 +21,7 @@
 		class="img-circle pull-left"
 		style="height: 72px; width: 72px; margin-right: 8px;"> <strong><%=building.name%></strong>&nbsp;
 
-		<span class="<%=labelType%> pull-right"><%=building.current%> free</span><br>
+		<span class="<%=labelType%> pull-right"><%=building.getCurrent()%> free</span><br>
 
 		<span class="hidden-xs"><%=building.current%> of <%=building.maximum%>
 			PCs are free.</span>

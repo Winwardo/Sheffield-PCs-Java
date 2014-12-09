@@ -5,21 +5,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import other.Geo;
 import databaseAccess.DatabasePostgres;
 
 public class Building {
     public long id;
-    public int current;
+    public Integer current;
     public int maximum;
     public String name;
     public String photo;
     public double latitude;
     public double longitude;
+    public Double distance;
     public List<PCs_info> pcsInfo;
 
     public Building() {
@@ -318,5 +321,99 @@ public class Building {
 	}
 
 	return result;
+    }
+
+    public static List<Building> getClosest(double latitude, double longitude,
+	    int minimum) {
+	List<Building> buildings = Building.getAll();
+	Geo geo = new Geo();
+
+	for (Building building : buildings) {
+	    building.distance = geo.distance(latitude, longitude,
+		    building.latitude, building.longitude);
+
+	    if (building.current <= minimum) {
+		building.distance += (minimum - building.current) / 4;
+	    }
+	}
+
+	class BuildingDistanceComparator implements Comparator<Building> {
+	    @Override
+	    public int compare(Building building1, Building building2) {
+		return building1.distance.compareTo(building2.distance);
+	    }
+	}
+
+	Collections.sort(buildings, new BuildingDistanceComparator());
+
+	return buildings;
+    }
+
+    public static List<Building> getAll() {
+	List<Building> buildings = new LinkedList<Building>();
+
+	Connection connection = DatabasePostgres.getConnection();
+	PreparedStatement pStatement;
+
+	try {
+	    pStatement = connection.prepareStatement("SELECT * FROM building");
+
+	    ResultSet results = pStatement.executeQuery();
+
+	    while (results.next()) {
+		Building building = new Building();
+
+		building.id = results.getLong("id");
+		building.name = results.getString("name");
+		building.photo = results.getString("photo");
+		building.latitude = results.getDouble("latitude");
+		building.longitude = results.getDouble("longitude");
+		building.maximum = results.getInt("maximum");
+
+		buildings.add(building);
+	    }
+
+	    results.close();
+	    pStatement.close();
+	    connection.close();
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
+	for (Building building : buildings) {
+	    building.getCurrent();
+	}
+
+	return buildings;
+    }
+
+    public Integer getCurrent() {
+	if (current == null) {
+
+	    Connection connection = DatabasePostgres.getConnection();
+	    PreparedStatement pStatement;
+
+	    try {
+		pStatement = connection
+			.prepareStatement("SELECT current FROM current_pcs WHERE buildingid = ? ORDER BY timestamp DESC LIMIT 1");
+		pStatement.setLong(1, id);
+
+		ResultSet results = pStatement.executeQuery();
+
+		if (results.next()) {
+		    current = results.getInt("current");
+		}
+
+		results.close();
+		pStatement.close();
+		connection.close();
+	    } catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	    }
+	}
+
+	return current;
     }
 }
