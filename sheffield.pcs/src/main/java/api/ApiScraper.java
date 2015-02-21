@@ -25,7 +25,7 @@ import databaseAccess.DatabaseLoginInfo;
 @Api(value = "/scraper", description = "Scrapes data from the Sheffield website")
 public class ApiScraper {
     Gson gson = new Gson();
-    String kimonoUrl = "https://www.kimonolabs.com/api/azqh7yb0?apikey=65444f9af606f40552af9d9c90886781";
+    String kimonoUrl = "https://www.kimonolabs.com/api/json/ondemand/azqh7yb0?apikey=65444f9af606f40552af9d9c90886781";
 
     @GET
     @Path("/newest")
