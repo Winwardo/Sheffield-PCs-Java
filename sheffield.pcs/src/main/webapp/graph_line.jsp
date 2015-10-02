@@ -1,3 +1,4 @@
+<%@ page import="java.util.*, data.*, com.google.gson.Gson"%>
 <div id="chart">
 	<svg></svg>
 </div>
@@ -42,33 +43,9 @@
 			});
 			chart.forceY([0, 450]);
 
-			var buildingsUrl_IC = "api/scraper/ic/buildings";
-			var buildingJson_IC = $.ajax({
-				type : "GET",
-				url : buildingsUrl_IC,
-				cache : true,
-				async : false
-			}).responseText;
-			var buildingsData_IC = JSON.parse(buildingJson_IC);
-						
-			var buildingsUrl_Mappin = "api/scraper/mappin/buildings";
-			var buildingJson_Mappin = $.ajax({
-				type : "GET",
-				url : buildingsUrl_Mappin,
-				cache : true,
-				async : false
-			}).responseText;
-			var buildingsData_Mappin = JSON.parse(buildingJson_Mappin);
-			
-			var buildingsUrl_Western = "api/scraper/western/buildings";
-			var buildingJson_Western = $.ajax({
-				type : "GET",
-				url : buildingsUrl_Western,
-				cache : true,
-				async : false
-			}).responseText;
-			var buildingsData_Western = JSON.parse(buildingJson_Western);
-			
+			var buildingsData_IC = <%=new Gson().toJson(Building.buildingsInTheIC())%>;
+			var buildingsData_Mappin = <%=new Gson().toJson(Building.buildingsInMappin())%>;
+			var buildingsData_Western = <%=new Gson().toJson(Building.buildingsInWesternBank())%>;
 			
 			chart.x(function(d) {
 				return d.timeStamp;

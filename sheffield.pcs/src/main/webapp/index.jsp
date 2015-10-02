@@ -79,9 +79,7 @@
 				</h3>
 				
 				<div id="pcs_graph">
-					<br> <br> <img src="img/loading.gif" alt="Loading"
-						width="92"><br>
-					<h6>Loading...</h6>
+					<c:import url="graph_line.jsp"></c:import>
 				</div>
 				
 				<small>Last updated: <span id="last-updated"></span></small>

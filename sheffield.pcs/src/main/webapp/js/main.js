@@ -1,15 +1,6 @@
-function updateData(buildings) {
-	NProgress.start();
-	$("#spaces_Mappin").load("api/scraper/mappin/current");
-	$("#spaces_IC").load("api/scraper/ic/current");
-	$("#spaces_Western").load("api/scraper/western/current");
-	
+function updateData(buildings) {	
 	var time = new Date();
 	$("#last-updated").html(time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
-	
-	$("#pcs_graph").load("graph_line.jsp", function() {
-		NProgress.done();
-	});
 }
 
 // jQuery calls
@@ -39,5 +30,5 @@ $(function() {
 	});
 
 	updateData();
-	window.setInterval(updateData, 300000); // Every 5 minutes
+	window.setInterval(function(){ location.reload() }, 600000); // Every 10 minutes
 });
