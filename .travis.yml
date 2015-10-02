@@ -1,2 +1,3 @@
 language: java
 sudo: required
+before_install: cd sheffield.pcs
