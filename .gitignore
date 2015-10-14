@@ -59,3 +59,5 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 /build/
+
+*.java_

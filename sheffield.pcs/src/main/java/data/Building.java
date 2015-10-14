@@ -4,17 +4,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import databaseAccess.DatabasePostgres;
 import other.Geo;
 
 public class Building {
+	static private Map<Long, Building> cache = new ConcurrentHashMap<Long, Building>();
+
 	public long id;
 	public Integer current;
 	public int maximum;
@@ -31,8 +35,8 @@ public class Building {
 
 	public static List<Building> buildingsInTheIC() {
 		List<Building> result = new LinkedList<Building>();
-
 		List<Long> ids = new LinkedList<Long>();
+
 		ids.add(Building.findIdFromName("Information Commons L1"));
 		ids.add(Building.findIdFromName("Information Commons L2"));
 		ids.add(Building.findIdFromName("Information Commons L3"));
@@ -114,6 +118,14 @@ public class Building {
 		return result;
 	}
 
+	public static List<Building> buildingsInAllMajorPlaces() {
+		List<Building> result = new ArrayList<>();
+		result.addAll(buildingsInTheIC());
+		result.addAll(buildingsInMappin());
+		result.addAll(buildingsInWesternBank());
+		return result;
+	}
+
 	public static Map<String, Object> getRecentForNvd3(long buildingId) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		Building building = getRecent(buildingId);
@@ -162,6 +174,11 @@ public class Building {
 	}
 
 	public static Building getRecent(long buildingId) {
+		Building cached = cache.get(buildingId);
+		if (cached != null) {
+			return cached;
+		}
+
 		Building building = new Building();
 
 		building.id = buildingId;
@@ -203,6 +220,8 @@ public class Building {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		cache.put(buildingId, building);
 
 		return building;
 	}
@@ -371,6 +390,10 @@ public class Building {
 		}
 
 		return buildings;
+	}
+
+	public static void invalidateCache() {
+		cache.clear();
 	}
 
 	public Integer getCurrent() {
