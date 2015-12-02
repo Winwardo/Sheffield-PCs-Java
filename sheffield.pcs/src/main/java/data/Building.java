@@ -118,6 +118,34 @@ public class Building {
 		return result;
 	}
 
+	public static List<Building> buildingsInTheDiamond() {
+		List<Building> result = new LinkedList<Building>();
+
+		List<Long> ids = new LinkedList<Long>();
+		ids.add(Building.findIdFromName("Diamond - Computer Room 1 - 2.01"));
+		ids.add(Building.findIdFromName("Diamond - Computer Room 2 - 2.08"));
+		ids.add(Building.findIdFromName("Diamond - Computer Room 3 - 2.07"));
+		ids.add(Building.findIdFromName("Diamond - Computer Room 4 - 2.06"));
+		ids.add(Building.findIdFromName("Diamond - General Study 1 - 3.01"));
+
+		for (Long id : ids) {
+			result.add(Building.getRecent(id));
+		}
+
+		return result;
+	}
+
+	public static int spacesInTheDiamond() {
+		int result = 0;
+		List<Building> buildings = buildingsInTheDiamond();
+
+		for (Building building : buildings) {
+			result += building.current;
+		}
+
+		return result;
+	}
+
 	public static List<Building> buildingsInAllMajorPlaces() {
 		List<Building> result = new ArrayList<>();
 		result.addAll(buildingsInTheIC());

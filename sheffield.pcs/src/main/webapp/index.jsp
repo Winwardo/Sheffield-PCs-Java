@@ -55,7 +55,7 @@
 			
 			<div class="row">
 				<div class="col-sm-4 hidden-xs">
-					<c:import url="MappinInfo.jsp"></c:import>
+					<c:import url="DiamondInfo.jsp"></c:import>
 				</div>
 				<div class="col-xs-6 col-sm-4">
 					<c:import url="ICinfo.jsp"></c:import>
@@ -90,9 +90,10 @@
 			<div class="col-md-12">
 				<h4 class="text-center">Tips on getting a PC</h4>
 				<ul>
-					<li>Arrive before 9am, or after midnight for best luck.</li>
+					<li>Arrive before 9am, or after 7pm for best luck.</li>
 					<li>On weekdays, people tend to leave 5-10 minutes before the hour to get to lectures.</li>
-					<li>Mappin tends to have a lot of spaces, check out ME03 and ME04.</li>
+					<li>Rooms are busiest at 3pm.</li>
+					<li>Saturdays are least busy, Mondays are busiest.</li>
 				</ul>
 			</div>
 		</div>

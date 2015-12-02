@@ -44,7 +44,7 @@
 			chart.forceY([0, 450]);
 
 			var buildingsData_IC = <%=new Gson().toJson(Building.buildingsInTheIC())%>;
-			var buildingsData_Mappin = <%=new Gson().toJson(Building.buildingsInMappin())%>;
+			var buildingsData_Diamond = <%=new Gson().toJson(Building.buildingsInTheDiamond())%>;
 			var buildingsData_Western = <%=new Gson().toJson(Building.buildingsInWesternBank())%>;
 			
 			chart.x(function(d) {
@@ -85,8 +85,8 @@
 				values : crunchData(buildingsData_IC),
 				area: true
 			}, {
-				key : "Mappin",
-				values : crunchData(buildingsData_Mappin),
+				key : "The Diamond",
+				values : crunchData(buildingsData_TheDiamond),
 				color: "hsl(120, 65%, 75%)",
 				area: true
 			}, {

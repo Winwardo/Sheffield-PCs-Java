@@ -1,11 +1,10 @@
 package databaseAccess;
 
-// Dummy data
 public class DatabaseLoginInfo {
-    static String host = "";
-    static String dbName = "";
-    static String username = "";
-    static String password = "";
+	static String host = "127.11.142.2:5432";
+	static String dbName = "sheffieldpcs";
+	static String username = "admin9epkceb";
+	static String password = "YqSrdu_hMrER";
 
-    static public String apiPassword = "";
+	static public String apiPassword = "ItsMrPants!";
 }
