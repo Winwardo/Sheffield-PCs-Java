@@ -25,7 +25,7 @@ import databaseAccess.DatabaseLoginInfo;
 @Api(value = "/scraper", description = "Scrapes data from the Sheffield website")
 public class ApiScraper {
 	Gson gson = new Gson();
-	String kimonoUrl = "https://www.kimonolabs.com/api/json/ondemand/azqh7yb0?apikey=65444f9af606f40552af9d9c90886781";
+	String kimonoUrl = "https://api.import.io/store/connector/7010127d-4d5c-41a9-b0bb-152717007d21/_query?input=webpage/url:https%3A%2F%2Fwww.sheffield.ac.uk%2Fcics%2Ffindapc%2F&&_apikey=770b7000634b4e3684fa246823e634ce39bb537d7705631dd77d4a916fffe1afd8490dea5941a11daa7a3f1ada9d62e7e0635ed92fe88faab34fc708c859d3afdb3f3c92bd5f55d1b4fbdf15f78cc046";
 
 	@GET
 	@Path("/newest")

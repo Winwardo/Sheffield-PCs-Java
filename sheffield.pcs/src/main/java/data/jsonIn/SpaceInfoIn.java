@@ -1,49 +1,60 @@
 package data.jsonIn;
 
 public class SpaceInfoIn {
-    String current;
-    String total_text;
-    String location;
-    String building;
-    String photo;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "SpaceInfoIn [current=" + current + ", total_text=" + total_text + ", location=" + location
+				+ ", building=" + building + ", photo=" + photo + "]";
+	}
 
-    public String getCurrent() {
-	return current;
-    }
+	String current;
+	String total_text;
+	String location;
+	String building;
+	String photo;
 
-    public void setCurrent(String current) {
-	this.current = current;
-    }
+	public String getCurrent() {
+		return current;
+	}
 
-    public String getTotal_text() {
-	return total_text;
-    }
+	public void setCurrent(String current) {
+		this.current = current;
+	}
 
-    public void setTotal_text(String total_text) {
-	this.total_text = total_text;
-    }
+	public String getTotal_text() {
+		return total_text;
+	}
 
-    public String getLocation() {
-	return location;
-    }
+	public void setTotal_text(String total_text) {
+		this.total_text = total_text;
+	}
 
-    public void setLocation(String location) {
-	this.location = location;
-    }
+	public String getLocation() {
+		return location;
+	}
 
-    public String getBuilding() {
-	return building;
-    }
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
-    public void setBuilding(String building) {
-	this.building = building;
-    }
+	public String getBuilding() {
+		return building;
+	}
 
-    public String getPhoto() {
-	return photo;
-    }
+	public void setBuilding(String building) {
+		this.building = building;
+	}
 
-    public void setPhoto(String photo) {
-	this.photo = photo;
-    }
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 }
