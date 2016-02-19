@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import databaseAccess.DatabasePostgres;
+import databaseaccess.DatabasePostgres;
 import other.Geo;
 
 public class Building {

@@ -17,10 +17,10 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-import data.jsonIn.OverallData;
-import data.jsonIn.PC_info;
-import data.jsonIn.SpaceInfoIn;
-import databaseAccess.DatabasePostgres;
+import data.jsonin.OverallData;
+import data.jsonin.PC_info;
+import data.jsonin.SpaceInfoIn;
+import databaseaccess.DatabasePostgres;
 
 public class WebScraper {
 	Gson gson;

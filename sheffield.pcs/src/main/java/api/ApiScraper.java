@@ -18,8 +18,8 @@ import data.Building;
 import data.DataEntry;
 import data.DataRetriever;
 import data.WebScraper;
-import data.jsonIn.OverallData;
-import databaseAccess.DatabaseLoginInfo;
+import data.jsonin.OverallData;
+import databaseaccess.DatabaseLoginInfo;
 
 @Path("/scraper")
 @Api(value = "/scraper", description = "Scrapes data from the Sheffield website")

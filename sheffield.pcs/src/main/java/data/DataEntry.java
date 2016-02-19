@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import data.jsonIn.OverallData;
-import data.jsonIn.SpaceInfoIn;
-import databaseAccess.DatabasePostgres;
+import data.jsonin.OverallData;
+import data.jsonin.SpaceInfoIn;
+import databaseaccess.DatabasePostgres;
 
 public class DataEntry {
     /**

@@ -44,7 +44,7 @@
 			chart.forceY([0, 450]);
 
 			var buildingsData_IC = <%=new Gson().toJson(Building.buildingsInTheIC())%>;
-			var buildingsData_Diamond = <%=new Gson().toJson(Building.buildingsInTheDiamond())%>;
+			var buildingsData_TheDiamond = <%=new Gson().toJson(Building.buildingsInTheDiamond())%>;
 			var buildingsData_Western = <%=new Gson().toJson(Building.buildingsInWesternBank())%>;
 			
 			chart.x(function(d) {

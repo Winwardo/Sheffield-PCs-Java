@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import databaseAccess.DatabasePostgres;
+import databaseaccess.DatabasePostgres;
 
 public class DataRetriever {
     public ScrapeData getNewestScrape() {
