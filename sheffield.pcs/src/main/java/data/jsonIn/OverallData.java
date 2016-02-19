@@ -1,4 +1,4 @@
-package data.jsonIn;
+package data.jsonin;
 
 public class OverallData {
     String name;

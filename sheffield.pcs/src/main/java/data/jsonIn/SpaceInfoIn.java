@@ -1,17 +1,6 @@
-package data.jsonIn;
+package data.jsonin;
 
 public class SpaceInfoIn {
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "SpaceInfoIn [current=" + current + ", total_text=" + total_text + ", location=" + location
-				+ ", building=" + building + ", photo=" + photo + "]";
-	}
-
 	String current;
 	String total_text;
 	String location;

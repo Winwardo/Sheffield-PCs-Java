@@ -1,4 +1,4 @@
-package databaseAccess;
+package databaseaccess;
 
 public class DatabaseLoginInfo {
 	static String host = "127.11.142.2:5432";
