@@ -129,7 +129,9 @@ public class Building {
 		ids.add(Building.findIdFromName("Diamond - General Study 1 - 3.01"));
 
 		for (Long id : ids) {
-			result.add(Building.getRecent(id));
+			if (id != null) {
+				result.add(Building.getRecent(id));
+			}
 		}
 
 		return result;
@@ -328,6 +330,9 @@ public class Building {
 			e.printStackTrace();
 		}
 
+		if (result == null) {
+			System.err.format("No id for building `%s` found.%n", buildingName);
+		}
 		return result;
 	}
 
