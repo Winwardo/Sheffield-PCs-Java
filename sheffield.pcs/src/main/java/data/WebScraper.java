@@ -107,7 +107,9 @@ public class WebScraper {
 			space.setLocation((String) thing.get("showonmap_link"));
 			space.setPhoto((String) thing.get("imgrounded_image"));
 
-			Integer i = ((Double) thing.get("colblock_value_numbers")).intValue();
+			Double val = (Double) thing.get("colblock_value_numbers");
+			Integer i = val == null ? 0 : val.intValue();
+
 			space.setTotal_text(String.format("%s %s", i, thing.get("colblock_value")));
 
 			pcInfos.add(space);
