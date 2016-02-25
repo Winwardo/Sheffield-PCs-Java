@@ -219,7 +219,7 @@ public class Building {
 
 		try {
 			pStatement = connection.prepareStatement("SELECT buildingid, current, timestamp " + "FROM current_pcs "
-					+ "WHERE buildingid = ? " + "AND timestamp IS NOT NULL " + "ORDER BY timestamp DESC LIMIT 144");
+					+ "WHERE buildingid = ? " + "AND timestamp IS NOT NULL " + "ORDER BY timestamp DESC LIMIT 720");
 			pStatement.setLong(1, buildingId);
 
 			ResultSet results = pStatement.executeQuery();
