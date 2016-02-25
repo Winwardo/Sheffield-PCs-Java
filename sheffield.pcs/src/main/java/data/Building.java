@@ -127,6 +127,8 @@ public class Building {
 		ids.add(Building.findIdFromName("Diamond - Computer Room 3 - 2.07"));
 		ids.add(Building.findIdFromName("Diamond - Computer Room 4 - 2.06"));
 		ids.add(Building.findIdFromName("Diamond - General Study 1 - 3.01"));
+		ids.add(Building.findIdFromName("Diamond - General Study 1 - 3.02"));
+		ids.add(Building.findIdFromName("Diamond - Silent Study 2 - 4.01"));
 
 		for (Long id : ids) {
 			if (id != null) {
