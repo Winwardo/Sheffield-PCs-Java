@@ -1,16 +1,14 @@
-<%@ page import="java.util.*, data.students.*"%>
+<%@ page import="java.util.*, java.text.*, data.students.*"%>
 <%
 StudentCount count = StudentCount.getFor("ic");
 long current_count = count.current_students;
-
-
 
 %>
 <div style="text-align: center;">
 	<h2>
 		There are currently<br>
 		<strong style="font-size: 4em;" id="students_Diamond"><%=current_count%></strong><br>
-		students in the IC.
+		students swiped into the IC.
 	</h2>
 	<% if (current_count < 500) { %>
 	You will not have trouble finding a space to study in.
@@ -22,6 +20,7 @@ long current_count = count.current_students;
 	Don't expect to easily find a space to study in.
 	<% } %>
 	<hr>
-	This data is provided by CiCS, accurate as of <%=count.date%>.<br>
+	<strong>Note:</strong> This isn't free PCs - this is the exact number of students inside the IC.<br>
+	This data is provided by CiCS, accurate as of <%=count.date.toGMTString()%>.<br>
 	Want more useful information about uni spaces? Head over to <a href="http://shefunipcs.info">ShefUniPCs.info</a> for a more detailed breakdown.
 </div>

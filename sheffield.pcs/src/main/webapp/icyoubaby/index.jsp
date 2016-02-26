@@ -37,7 +37,7 @@
 	<div class="navbar navbar-inverse hidden-xs" role="navigation">
 		<div class="container">
 			<ul class="nav navbar-nav">
-				<li><a class="navbar-brand" href="#">ShefUniPCs.info/ICYouBaby</a></li>
+				<li><a class="navbar-brand" href="http://ICYouBa.by">http://ICYouBa.by</a></li>
 			</ul>
 
 
@@ -65,7 +65,6 @@
 		
 	<div class="container">
 		Created by <a href="http://uk.linkedin.com/in/topherwinward">Topher Winward</a>.<br>
-		All data retrieved from <a href="https://www.sheffield.ac.uk/cics/findapc/" target="_blank">The University Of Sheffield's Find a PC</a> page.<br>
 		ShefUniPCs.info is not officially associated with <a href="https://www.sheffield.ac.uk/">The University Of Sheffield</a>.
 	</div>
 	<br>
