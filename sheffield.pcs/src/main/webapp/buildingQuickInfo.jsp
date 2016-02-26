@@ -1,5 +1,5 @@
 <%@ page
-	import="java.util.*, data.*"%>
+	import="java.util.*, data.pcs.*"%>
 	
 <ul class="info_blocks">
 	<%

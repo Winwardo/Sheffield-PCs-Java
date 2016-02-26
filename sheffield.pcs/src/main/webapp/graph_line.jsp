@@ -1,4 +1,4 @@
-<%@ page import="java.util.*, data.*, com.google.gson.Gson"%>
+<%@ page import="java.util.*, data.pcs.*, com.google.gson.Gson"%>
 <div id="chart">
 	<svg></svg>
 </div>
