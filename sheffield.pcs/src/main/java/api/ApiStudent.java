@@ -1,5 +1,7 @@
 package api;
 
+import java.util.Date;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -32,7 +34,7 @@ public class ApiStudent {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String updateBuilding(@PathParam("building") String building, @PathParam("password") String password,
 			@PathParam("newcount") Long newcount) {
-		StudentCount toUpdate = new StudentCount(building, newcount);
+		StudentCount toUpdate = new StudentCount(building, newcount, new Date());
 		return gson.toJson(toUpdate.update());
 	}
 }

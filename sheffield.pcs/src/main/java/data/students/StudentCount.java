@@ -4,16 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import databaseaccess.DatabasePostgres;
 
 public class StudentCount {
 	public final long current_students;
 	public final String building;
+	public final Date date;
 
-	public StudentCount(String building, long current_students) {
+	public StudentCount(String building, long current_students, Date date) {
 		this.building = building;
 		this.current_students = current_students;
+		this.date = date;
 	}
 
 	public static StudentCount getFor(String building) {
@@ -24,12 +27,13 @@ public class StudentCount {
 
 		try {
 			pStatement = connection.prepareStatement(
-					"SELECT current_students FROM current_students WHERE building = ? ORDER BY timestamp DESC LIMIT 1");
+					"SELECT current_students, timestamp FROM current_students WHERE building = ? ORDER BY timestamp DESC LIMIT 1");
 			pStatement.setString(1, building);
 			ResultSet results = pStatement.executeQuery();
 
 			if (results.next()) {
-				result = new StudentCount(building, results.getLong("current_students"));
+				result = new StudentCount(building, results.getLong("current_students"),
+						new Date(results.getTimestamp("timestamp").getTime()));
 			}
 
 			results.close();
