@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import data.DataEntry;
+import data.pcs.DataEntry;
 
 public class TestDataEntry {
     double geoEpsilon = 0.00001;

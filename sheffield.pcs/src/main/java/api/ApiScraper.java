@@ -14,11 +14,11 @@ import com.google.gson.Gson;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
-import data.Building;
-import data.DataEntry;
-import data.DataRetriever;
-import data.WebScraper;
 import data.jsonin.OverallData;
+import data.pcs.Building;
+import data.pcs.DataEntry;
+import data.pcs.DataRetriever;
+import data.pcs.WebScraper;
 import databaseaccess.DatabaseLoginInfo;
 
 @Path("/scraper")

@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
-import data.Building;
+import data.pcs.Building;
 
 @Path("/building")
 @Api(value = "/building", description = "Retrieves information about the various buildings at Sheffield.")
