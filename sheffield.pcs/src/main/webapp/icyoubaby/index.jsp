@@ -53,7 +53,7 @@
 		
 		<div class="container">			
 			<div class="row">
-				<div class="col-sm-12 hidden-xs">
+				<div class="col-sm-12">
 					<c:import url="ICinfo.jsp"></c:import>
 				</div>
 			</div>			
